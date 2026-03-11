@@ -9,3 +9,4 @@ routes_bp = Blueprint('routes', __name__)
 @routes_bp.route('/')
 def welcome():
     return render_template('index.html')
+
