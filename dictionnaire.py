@@ -1,10 +1,9 @@
 #Les mots et les indices liés à ces mêmes mots ont été générés par une IA.
 #Le dictionnaire ci-dessous recense les différents mots disponibles pour le pendu ; ils sont classés par thème et par nombre de lettres dans le mot.
 
-dictionnaire_des_mots = {
-
-  
-    "ANIMAUX": {           
+dictionnaire_des_mots =  
+{
+    "ANIMAUX": {
 
         "4_6": {
             "AIGLE":  "Rapace aux serres redoutables",
@@ -21,7 +20,7 @@ dictionnaire_des_mots = {
             "LYNX":   "Felin sauvage aux oreilles a pinceau",
             "MORSE":  "Defenses de glace sur banquise arctique",
             "BISON":  "Grand bovin sauvage des grandes plaines",
-            "LAPIN":  "C'est un rongeur bondissant",
+            "LAPIN":  "Rongeur aux longues oreilles bondissant",
             "REQUIN": "Predateur bleu aux dents en rangees",
             "LOUTRE": "Glisse sur le dos en craquant des coquillages",
         },
@@ -54,7 +53,7 @@ dictionnaire_des_mots = {
             "ARAIGNEE SAUTEUSE":     "Predatrice aux yeux multiples et immenses",
             "AUTRUCHE D'AFRIQUE":    "La plus grande et la plus rapide a pied",
             "CAMELEON JACKSON":      "Trois cornes et camouflage spectaculaire",
-            "SANGLIER D'EUROPE":     "Boutoir tranchant et groupe familial",
+            "SANGLIER D'EUROPE":     "Boutoir tranchant et groupe familial solide",
             "HERISSON COMMUN":       "Boule de piquants au moindre danger",
             "SCARABEE SACRE":        "Insecte divinise qui roule une boule",
             "TARENTULE NOIRE":       "Grande velue aux crochets venimeux",
@@ -67,8 +66,7 @@ dictionnaire_des_mots = {
         },
     },
 
-    "FILMS": {           
-
+    "FILMS": {
         "4_6": {
             "AVATAR": "Humanite contre nature sur une lune distante",
             "MATRIX": "Pilule rouge ou pilule bleue",
@@ -88,7 +86,6 @@ dictionnaire_des_mots = {
             "BONES":  "Anthropologue et agent FBI resolvent des crimes",
             "MONK":   "Detektive prodige aux nombreuses phobies",
         },
-
         "7_10": {
             "TITANIC":     "Un paquebot, un iceberg, une histoire d'amour",
             "INCEPTION":   "Voler des secrets au coeur du sommeil",
@@ -108,7 +105,7 @@ dictionnaire_des_mots = {
             "THE CROWN":   "Le poids discret d'une couronne",
             "CHERNOBYL":   "Reconstitution d'une catastrophe nucleaire sovietique",
         },
- 
+
         "11_et_plus": {
             "INTERSTELLAR":     "Wormhole et relativite pour sauver l'humanite",
             "LES AFFRANCHIS":   "La mafia new-yorkaise vue de l'interieur",
@@ -130,7 +127,7 @@ dictionnaire_des_mots = {
         },
     },
 
-    "PERSONNAGES": {           
+    "PERSONNAGES": {
 
         "4_6": {
             "DARWIN": "Voyage aux Galapagos, theorie controversee",
@@ -172,7 +169,7 @@ dictionnaire_des_mots = {
             "BRUCE LEE":   "Vitesse de frappe non capturable en 24 fps",
             "MIKE TYSON":  "KO en moins de deux minutes, oreille mordue",
         },
-  
+
         "11_et_plus": {
             "SHAKESPEARE":      "Ecriture prolifique entre Londres et Stratford",
             "LEONARD DE VINCI": "Ambidextre, ingenieux, peintre et bien plus",
@@ -193,8 +190,7 @@ dictionnaire_des_mots = {
         },
     },
 
-
-    "NOURRITURE": {     
+    "NOURRITURE": {
 
         "4_6": {
             "PIZZA":  "Disque de pate, tomates et mozzarella",
@@ -257,7 +253,8 @@ dictionnaire_des_mots = {
         },
     },
 
-    "MUSIQUE": {           
+
+    "MUSIQUE": {
 
         "4_6": {
             "JAZZ":   "Improvisation nee dans la Nouvelle-Orleans",
@@ -283,7 +280,7 @@ dictionnaire_des_mots = {
             "TECHNO": "BPM eleves et basses repetitives",
             "LOUVRE": "Pyramide de verre et millions de visiteurs",
         },
-  
+
         "7_10": {
             "SYMPHONIE":   "Quatre mouvements pour grand orchestre",
             "GUITARE":     "Six cordes pincees ou grattees",
@@ -321,7 +318,7 @@ dictionnaire_des_mots = {
     },
 
 
-    "SPORT": {           
+    "SPORT": {
 
         "4_6": {
             "BOXE":   "Garde haute, jab et crochet du gauche",
@@ -342,7 +339,6 @@ dictionnaire_des_mots = {
             "CHRONO": "Course contre la montre individuelle",
             "SPRINT": "Effort maximal sur courte distance",
         },
-
         "7_10": {
             "FOOTBALL":   "Onze contre onze, un ballon rond",
             "BASKETBALL": "Panier a trois metres de hauteur",
@@ -367,7 +363,6 @@ dictionnaire_des_mots = {
             "PALMARES":   "Liste des titres accumules au fil des annees",
             "ARBITRE":    "Celui qui fait respecter les regles sur le terrain",
         },
-
         "11_et_plus": {
             "HALTEROPHILIE":       "Arracher ou epauler-jeter le plus lourd",
             "GYMNASTIQUE":         "Barre fixe, sol et note d'execution",
@@ -384,10 +379,8 @@ dictionnaire_des_mots = {
         },
     },
 
+    "SCIENCES": {
 
-    "SCIENCES": {           
-
-  
         "4_6": {
             "ATOME":  "Noyau entoure d'un nuage electronique",
             "PHOTON": "Particule sans masse a vitesse maximale",
@@ -407,7 +400,7 @@ dictionnaire_des_mots = {
             "PROTON": "Particule chargee positivement dans le noyau",
             "ACIDE":  "Substance au pH inferieur a 7",
         },
-  
+
         "7_10": {
             "RELATIVITE":  "Espace et temps lies par la vitesse",
             "EVOLUTION":   "Variation, selection et temps geologique",
@@ -431,6 +424,7 @@ dictionnaire_des_mots = {
             "FARADAY":     "Bobine, aimant et induction electromagnetique",
             "TROU DE VER": "Tunnel hypothetique entre deux points de l'espace",
         },
+
         "11_et_plus": {
             "GRAVITATION":               "Force proportionnelle aux masses",
             "PENICILLINE":               "Moisissure qui a change la medecine",
@@ -448,9 +442,8 @@ dictionnaire_des_mots = {
         },
     },
 
-
-    "HISTOIRE": {           
-
+    "HISTOIRE": {
+ 
         "4_6": {
             "SHOAH":  "Six millions de morts dans le systeme nazi",
             "GAULE":  "Territoire d'avant la France romaine",
@@ -467,10 +460,10 @@ dictionnaire_des_mots = {
             "DECRET": "Texte de loi emanant du pouvoir executif",
             "TREVE":  "Arret temporaire des combats",
             "CHARTE": "Texte fondateur de droits essentiels",
-            "GILDE":  "Corporation de marchands ou d'artisans au Moyen Age",
+            "GILDE":  "Corporation de marchands au Moyen Age",
             "DUCHE":  "Territoire gouverne par un duc",
         },
-  
+
         "7_10": {
             "BASTILLE":    "Forteresse parisienne symbole d'un regime",
             "WATERLOO":    "Defaite qui mit fin a cent jours de retour",
@@ -512,65 +505,61 @@ dictionnaire_des_mots = {
         },
     },
 
-    "EVENEMENTS": {           
+    "PAYS": {
 
         "4_6": {
-            "COVID":  "Confinements et masques sur toute la planete",
-            "BREXIT": "Referendum britannique et sortie de l'Union",
-            "KRACH":  "Effondrement brutal des marches financiers",
-            "EXODE":  "Deplacement massif d'une population en fuite",
-            "POGROM": "Violence organisee contre une minorite",
-            "SIEGE":  "Encerclement total d'une ville en guerre",
-            "PURGE":  "Elimination massive d'opposants politiques",
-            "CHUTE":  "Effondrement soudain d'un regime ou d'un mur",
-            "GREVE":  "Arret collectif du travail pour revendiquer",
-            "EMEUTE": "Soulevement spontane et violent dans la rue",
-            "TREVE":  "Suspension temporaire d'un conflit arme",
-            "RAID":   "Attaque surprise sur un objectif militaire",
-            "CRISE":  "Periode de forte instabilite economique ou politique",
-            "BLOCUS": "Isolement total d'une zone par encerclement",
-            "PUTSCH": "Tentative de coup de force contre un gouvernement",
-            "FUITE":  "Abandon precipite d'une position ou d'un pays",
-            "PACTE":  "Accord secret entre deux puissances",
+            "LIBAN":  "Republique Chretienne et Islamique du Moyen-Orient",
+            "IRAK":  "Ancienne Mesopotamie entre deux fleuves",
+            "CUBA":  "Ile des Caraibes a la revolution emblematique",
+            "MALI":  "Empire medieval sahelien de l'or et du sel",
+            "PERU":  "Civilisation inca et haut plateau andin",
+            "INDE":  "Civilisation millenaire aux mille dieux",
+            "LAOS":  "Enclave bouddhiste d'Asie du Sud-Est",
+            "TOGO":  "Petit pays d'Afrique de l'Ouest sur le golfe",
+            "OMAN":  "Sultanat arabe face au detroit d'Ormuz",
+            "CHILI": "Bande etroite entre la cordillere et le Pacifique",
+            "NIGER": "Vaste pays sahelien traverse par un grand fleuve",
+            "BENIN": "Berceau du vaudou en Afrique de l'Ouest",
+            "GHANA": "Premier pays africain independant au sud du Sahara",
+            "KENYA": "Savane, marathon et Grande Rift Valley",
+            "LIBYE": "Desert et petrole sur la cote mediterraneenne",
+            "NEPAL": "Royaume himalayen aux sommets les plus hauts",
+            "CHINE": "Plus grande population du monde et Grande Muraille",
         },
-        # 11 mots | 7 a 10 lettres
+
         "7_10": {
-            "TCHERNOBYL": "Reacteur quatre explose en Ukraine sovietique",
-            "FUKUSHIMA":  "Seisme, tsunami et reacteur nucleaire endommage",
-            "TSUNAMI":    "Vague geante declenchee par un seisme sous-marin",
-            "ARMISTICE":  "Fin officielle des combats de la Grande Guerre",
-            "MIGRATION":  "Mouvement massif de populations vers d'autres regions",
-            "LIBERATION": "Fin d'une occupation militaire etrangere",
-            "BARRICADE":  "Obstacle improvise dans les rues en revolte",
-            "OFFENSIVE":  "Attaque militaire de grande ampleur",
-            "PARTITION":  "Division d'un territoire en deux entites",
-            "REVOLUTION": "Renversement radical d'un systeme politique",
-            "SABOTAGE":   "Destruction deliberee d'une infrastructure ennemie",
+            "MEXIQUE":    "Pyramides mayas et tequila",
+            "NIGERIA":    "Pays le plus peuple d'Afrique",
+            "UKRAINE":    "Grenier a ble de l'Europe de l'Est",
+            "VIETNAM":    "Guerre froide et delta du Mekong",
+            "PAKISTAN":   "Pays cree en 1947 lors de la partition",
+            "CAMBODGE":   "Temples d'Angkor et genocide des Khmers rouges",
+            "ETHIOPIE":   "Plus vieux pays chretien et berceau de l'humanite",
+            "COLOMBIE":   "Emeraudes, cafe et cartel de Medellin",
+            "PORTUGAL":   "Fado, Age des decouvertes et pasteis de nata",
+            "ROUMANIE":   "Transylvanie, Dracula et Carpates",
+            "ISLANDE":    "Geysers, volcans et nuits blanches",
+            "NORVEGE":    "Fjords, vikings et aurores boreales",
+            "FINLANDE":   "Sauna, lacs et Pere Noel en Laponie",
+            "DANEMARK":   "Petite Sirene, LEGO et Hamlet",
+            "TUNISIE":    "Carthage, medina de Tunis et Sahara",
+            "SENEGAL":    "Teranga, lutte traditionnelle et ile de Goree",
+            "MONGOLIE":   "Steppes infinies et empire de Gengis Khan",
+            "MOZAMBIQUE": "Perle de l'ocean Indien en Afrique australe",
+            "MADAGASCAR": "Grande ile aux especes uniques au monde",
+            "KAZAKHSTAN": "Immense steppe entre Russie et Chine",
+            "MAURITANIE": "Desert du Sahara jusqu'a l'ocean Atlantique",
+            "BANGLADESH": "Delta du Gange et pays le plus dense du monde",
         },
+
         "11_et_plus": {
-            "CAPITULATION":             "Reddition militaire officielle et totale",
-            "INSURRECTION":             "Soulevement arme contre le pouvoir en place",
-            "DEBARQUEMENT":             "Troupes qui prennent pied sur une plage ennemie",
-            "BOMBARDEMENT":             "Attaque aerienne ou d'artillerie prolongee",
-            "MOBILISATION":             "Appel aux armes d'une population entiere",
-            "SOULEVEMENT":              "Mouvement populaire contre une autorite",
-            "ATTENTAT DU 11 SEPTEMBRE": "Tours jumelles et monde bascule",
-            "CHUTE DU MUR DE BERLIN":   "Novembre 1989, beton ebranlé dans la nuit",
-            "ERUPTION DE POMPEI":       "Ville ensevelie sous les cendres du Vesuve",
-            "CYCLONE KATRINA":          "Nouvelle-Orleans submergee et abandonnee",
-            "FEU DE NOTRE-DAME":        "Fleche effondree et emotion mondiale en 2019",
-            "FAMINE EN IRLANDE":        "Mildiou, emigration massive et depopulation",
-            "SOMMET DE YALTA":          "Trois grands et partage du monde d'apres-guerre",
-            "PREMIER VOL MOTORISE":     "Kitty Hawk, douze secondes, histoire changee",
-            "CRISE DES MISSILES":       "Treize jours au bord de la guerre nucleaire",
-            "MASSACRE DE TIANANMEN":    "Char face a un homme seul, image mondiale",
-            "GENOCIDE RWANDAIS":        "Cent jours, un million de morts en 1994",
-            "GUERRE DU GOLFE":          "Coalition internationale contre l'invasion du Koweit",
-            "REVOLUTION CUBAINE":       "Barbu descendu des montagnes et ile transformee",
-            "LANCEMENT D'INTERNET":     "ARPANET et le premier message envoye en 1969",
-            "REUNIFICATION ALLEMANDE":  "Un seul passeport pour une seule nation en 1990",
-            "PRINTEMPS DE PRAGUE":      "Reformes ecrasees par les chars sovietiques",
-            "ASSASSINAT DE KENNEDY":    "Dallas, 1963, cabriolet et balles",
+            "AFGHANISTAN":   "Carrefour des empires entre Asie centrale et du Sud",
+            "AZERBAIDJAN":   "Pays du feu entre Caucase et Caspienne",
+            "PHILIPPINES":   "Archipel de plus de sept mille iles en Asie",
+            "OUZBEKISTAN":   "Route de la soie et minarets de Samarcande",
+            "TURKMENISTAN":  "Dictature du desert avec cratere de feu",
+            "KIRGHIZSTAN":   "Nomades et yourtes au coeur de l'Asie centrale",
+            "LIECHTENSTEIN": "Minuscule principaute entre Suisse et Autriche",
         },
     },
 
