@@ -1,3 +1,5 @@
+// boutons pour afficher configuraton
+
 const btnConfiguration = document.querySelector('.btn-configuration')
 const menuConfiguration = document.querySelector('.configuration-page')
 
@@ -7,24 +9,39 @@ if (btnConfiguration) {
     } )
 }
 
+// Les boutons de theme
+
 const btnTheme = document.querySelectorAll('.btn-theme')
 const btnFinal = document.querySelector('.jouer-btn')
+const inputThemeSelected = document.querySelector('#hidden-theme')
 
 if (btnFinal) { btnFinal.disabled = true; }
 
+let theme = [];
+
 btnTheme.forEach(bouton => {
     bouton.addEventListener('click', () => {
+        
+        const nomTheme = bouton.dataset.theme;
         bouton.classList.toggle('selected');
 
-        const btnThemeChoice = document.querySelector('.btn-theme.selected');
+        if (bouton.classList.contains('selected')) {
+            theme.push(nomTheme)
+        } else {
+            theme = theme.filter(value => value !== nomTheme)
+        }
 
-        if (!btnThemeChoice) {
+        inputThemeSelected.value = theme.join(',')
+
+        if (theme.length === 0) {
             btnFinal.disabled = true;
         } else {
             btnFinal.disabled = false;
         }
     });
 })
+
+// Les boutons toggle
 
 const toggleBtn1 = document.querySelector('.toggle-btn-1');
 const circleOfBtn1 = document.querySelector('.circle-1')
@@ -70,5 +87,3 @@ document.addEventListener('mousemove', (e) => {
         spark.remove();
     }, 600);
 });
-
-

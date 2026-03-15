@@ -67,7 +67,7 @@ dictionnaire_des_mots = {
         },
     },
 
-    "FILMS ET SERIES": {           
+    "FILMS": {           
 
         "4_6": {
             "AVATAR": "Humanite contre nature sur une lune distante",
@@ -257,7 +257,7 @@ dictionnaire_des_mots = {
         },
     },
 
-    "MUSIQUE ET CULTURE": {           
+    "MUSIQUE": {           
 
         "4_6": {
             "JAZZ":   "Improvisation nee dans la Nouvelle-Orleans",
