@@ -26,13 +26,30 @@ btnTheme.forEach(bouton => {
     });
 })
 
-const toggleBtn = document.querySelector('.toggle-btn');
-const circleOfBtn = document.querySelector('.circle')
+const toggleBtn1 = document.querySelector('.toggle-btn-1');
+const circleOfBtn1 = document.querySelector('.circle-1')
 
-if (toggleBtn && circleOfBtn) {
-    toggleBtn.addEventListener('click', () => {
-        toggleBtn.classList.toggle('on');
-        circleOfBtn.classList.toggle('on');
+if (toggleBtn1 && circleOfBtn1) {
+    toggleBtn1.addEventListener('click', () => {
+        toggleBtn1.classList.toggle('on');
+        circleOfBtn1.classList.toggle('on');
+    })
+}
+
+const toggleBtn2 = document.querySelector('.toggle-btn-2');
+const circleOfBtn2 = document.querySelector('.circle-2');
+const sliderCaractere = document.querySelector('.slider-2');
+
+if (toggleBtn2 && circleOfBtn2) {
+    toggleBtn2.addEventListener('click', () => {
+        toggleBtn2.classList.toggle('on');
+        circleOfBtn2.classList.toggle('on');
+
+        if (toggleBtn2.classList.contains('on')) {
+            sliderCaractere.classList.add('disabled');
+        } else {
+            sliderCaractere.classList.remove('disabled');
+        }
     })
 }
 

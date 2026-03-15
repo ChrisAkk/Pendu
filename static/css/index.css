@@ -188,7 +188,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 7rem 5rem 7rem 5rem;
+    padding: 3rem;
     border: 3px solid #000;
     border-radius: 10px;
     margin-left: 20rem;
@@ -270,7 +270,8 @@ body{
     margin-top: 5px;
 }
 
-.slider {
+.slider-1,
+.slider-2 {
     appearance: none;
     width: 100%;
     height: 15px;
@@ -281,7 +282,15 @@ body{
     box-shadow: 1px 0px 10px 1px #000;
 }
 
-.slider::-webkit-slider-thumb{
+.slider-2.disabled{
+    background: #737373;
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.slider-1::-webkit-slider-thumb,
+.slider-2::-webkit-slider-thumb{
     -webkit-appearance: none;
     width: 20px;
     height: 20px;
@@ -292,7 +301,8 @@ body{
     cursor: pointer;
 }
 
-.slider::-moz-range-thumb {
+.slider-1::-moz-range-thumb,
+.slider-2::-moz-range-thumb {
     appearance: none;
     width: 20px;
     height: 20px;
@@ -319,8 +329,8 @@ body{
 .line-2 button,
 .line-3 button {
     width: 100%;
-    font-size: 20px;
-    padding: 2rem;
+    font-size: 15px;
+    padding: 1rem;
     border-radius: 20px;
     background: #efa2a3;
     border: 1px solid #000;
@@ -342,7 +352,8 @@ body{
     width: 100%;
 }
 
-.toggle-btn{
+.toggle-btn-1,
+.toggle-btn-2{
     position: relative;
     width: 60px;
     height: 30px;
@@ -357,7 +368,8 @@ body{
     margin-right: 1rem;
 }
 
-.circle{
+.circle-1,
+.circle-2{
     position: absolute;
     left: 2px;
     top: 2px;
@@ -368,22 +380,26 @@ body{
     transition: left .4s;
 }
 
-.circle.on{
+.circle-1.on,
+.circle-2.on{
     left: 33px;
     right: 2px;
 }
 
-.toggle-btn.on {
+.toggle-btn-1.on,
+.toggle-btn-2.on {
     background: #efa2a3;
 }
 
-.global-toggle{
+.global-toggle-1,
+.global-toggle-2{
     margin-top: 1rem;
     display: flex;
     align-items: center;
 }
 
-.global-toggle p{
+.global-toggle-1 p,
+.global-toggle-2 p{
     color: #fff;
 }
 

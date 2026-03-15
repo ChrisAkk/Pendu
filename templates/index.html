@@ -27,58 +27,85 @@
                         <div class="menu-start">
                             <button class="btn-configuration">Jouer</button>
                             <a href="#help-page">Aide</a>
+                            <a href="https://www.google.com/">Quitter</a>
                         </div>
                     </div>
                 </div>
-                <div class="configuration-page">
-                    <p class="titre">Configuration</p>
-                    <form action="/jouer" method="POST">
+
+                <form action="/jouer" method="POST">
+                    <div class="configuration-page">
+                        <p class="titre">Configuration</p>
                         <label for="tentative" class="titre-configuration">Combien d'essais</label>
                         <div class="input">
-                            <input type="range" id="slider" class="slider" min="3" max="12" value="7">
+                            <input type="range" name="essais" id="slider-1" class="slider-1" min="3" max="12" value="7">
                             <div class="proposition">
                                 {% for i in range(3, 13) %}
                                 <span>{{i}}</span>
                                 {% endfor %}
                             </div>
                         </div>
-                    </form>
 
-                    <div class="global-theme">
-                        <p class="titre-configuration">Themes</p>
-                        <p class="sous-titre-theme">Séléctionner un ou plusieurs Thème (Minimum 1)</p>
 
-                        <div class="line-1">
-                            <button class="btn-theme">🐕 Animaux</button>
-                            <button class="btn-theme">🇫🇷 Pays</button>
-                            <button class="btn-theme">🎬 Films / Séries</button>
-                        </div>
-                        <div class="line-2">
-                            <button class="btn-theme">🎅 Personnages</button>
-                            <button class="btn-theme">🍏 Nourriture</button>
-                            <button class="btn-theme">🎵 Musique</button>
-                        </div>
-                        <div class="line-3">
-                            <button class="btn-theme">⚽️ Sport</button>
-                            <button class="btn-theme">🔬 Science</button>
-                            <button class="btn-theme">🌍 Histoire</button>
-                        </div>
-
-                    </div>
-
-                    <div class="global-settings">
-                        <p class="titre-configuration">Paramètre</p>
-                        <div class="global-toggle">
-                            <div class="toggle-btn">
-                                <div class="circle"></div>
+                        <label for="tentative" class="titre-configuration">Combien de caractére</label>
+                        <div class="input">
+                            <input type="range" name="caractere" id="slider-2" class="slider-2" min="1" max="3" value="2">
+                            <div class="proposition">
+                                <span>4-6</span>
+                                <span>7-10</span>
+                                <span>11+</span>
                             </div>
-                            <p>Voulez vous avoir l'option des indices ?</p>
+                        </div>
+
+
+                        <div class="global-theme">
+                            <p class="titre-configuration">Themes</p>
+                            <p class="sous-titre-theme">Séléctionner un ou plusieurs Thème (Minimum 1)</p>
+
+                            <div class="line-1">
+                                <button type="button" class="btn-theme">🐕 Animaux</button>
+                                <button type="button" class="btn-theme">🇫🇷 Pays</button>
+                                <button type="button" class="btn-theme">🎬 Films / Séries</button>
+                            </div>
+                            <div class="line-2">
+                                <button type="button" class="btn-theme">🎅 Personnages</button>
+                                <button type="button" class="btn-theme">🍏 Nourriture</button>
+                                <button type="button" class="btn-theme">🎵 Musique</button>
+                            </div>
+                            <div class="line-3">
+                                <button type="button" class="btn-theme">⚽️ Sport</button>
+                                <button type="button" class="btn-theme">🔬 Science</button>
+                                <button type="button" class="btn-theme">🌍 Histoire</button>
+                            </div>
+
+                        </div>
+
+                        <div class="global-settings">
+                            <p class="titre-configuration">Paramètre</p>
+
+                            <div class="global-toggle-1">
+                                <div class="toggle-btn-1">
+                                    <div class="circle-1"></div>
+                                </div>
+                                <p>Voulez vous avoir l'option des indices ?</p>
+                            </div>
+
+                            <div class="global-toggle-2">
+                                <div class="toggle-btn-2">
+                                    <div class="circle-2"></div>
+                                </div>
+                                <p>Voulez vous avoir un nombre de caractère aléatoire ?</p>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="theme" id="hidden-theme" value="">
+                        <input type="hidden" name="indice" id="hidden-indice" value="off">
+                        <input type="hidden" name="aleatoire" id="hidden-aleatoire" value="off">
+
+                        <div class="global-submit-btn">
+                            <button type="submit" class="jouer-btn">C'est partie !</button>
                         </div>
                     </div>
-                    <div class="global-submit-btn">   
-                        <button type="submit" class="jouer-btn">C'est partie !</button>
-                    </div>
-                </div>
+                </form>
             </div>
 
             <div class="help-page" id="help-page">
