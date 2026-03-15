@@ -132,9 +132,15 @@ body{
     width: 80%;
 }
 
-.welcome-page p{
-    font-size: 5rem;
+.welcome-page h1{
+    font-size: 4rem;
     text-align: center;
+}
+
+.welcome-page h3{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .welcome-page a{

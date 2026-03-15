@@ -3,10 +3,25 @@
 const btnConfiguration = document.querySelector('.btn-configuration')
 const menuConfiguration = document.querySelector('.configuration-page')
 
-if (btnConfiguration) {
-    btnConfiguration.addEventListener('click', () => {
-        menuConfiguration.classList.toggle('on')
-    } )
+if (btnConfiguration && menuConfiguration) {
+    btnConfiguration.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menuConfiguration.classList.toggle('on');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!menuConfiguration.contains(e.target) && menuConfiguration.classList.contains('on')) {
+            menuConfiguration.classList.remove('on');
+        };
+    });
+    
+    document.addEventListener('scroll', () => {
+        if (menuConfiguration.classList.contains('on')) {
+            menuConfiguration.classList.remove('on');
+        };
+    })
+
+    
 }
 
 // Les boutons de theme
