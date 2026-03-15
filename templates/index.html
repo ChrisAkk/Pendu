@@ -1,12 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pendu</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
 </head>
+
 <body>
-    <h1 class="title">Bienvenue sur le pendu</h1>
+
+    <main>
+        <div class="global-container">
+            <div class="welcome-page" id="welcome-page">
+                <div class="welcome-container">
+                    <p>Bienvenue sur le jeu du pendu : Le destin au bout des lettres</p>
+                    <a href="#menu-page" class="welcome-btn">COMMENCER</a>
+                </div>
+            </div>
+
+            <div>
+                <div class="game-page">
+                    <a class="back-btn-1" href="#welcome-page"><i class="ri-arrow-go-back-line"></i></a>
+                    <div class="menu-page" id="menu-page">
+                        <div class="menu-start">
+                            <button class="btn-configuration">Jouer</button>
+                            <a href="#help-page">Aide</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="configuration-page">
+                    <p class="titre">Configuration</p>
+                    <form action="/jouer" method="POST">
+                        <label for="tentative" class="titre-configuration">Combien d'essais</label>
+                        <div class="input">
+                            <input type="range" id="slider" class="slider" min="3" max="12" value="7">
+                            <div class="proposition">
+                                {% for i in range(3, 13) %}
+                                <span>{{i}}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="global-theme">
+                        <p class="titre-configuration">Themes</p>
+                        <p class="sous-titre-theme">Séléctionner un ou plusieurs Thème (Minimum 1)</p>
+
+                        <div class="line-1">
+                            <button class="btn-theme">🐕 Animaux</button>
+                            <button class="btn-theme">🇫🇷 Pays</button>
+                            <button class="btn-theme">🎬 Films / Séries</button>
+                        </div>
+                        <div class="line-2">
+                            <button class="btn-theme">🎅 Personnages</button>
+                            <button class="btn-theme">🍏 Nourriture</button>
+                            <button class="btn-theme">🎵 Musique</button>
+                        </div>
+                        <div class="line-3">
+                            <button class="btn-theme">⚽️ Sport</button>
+                            <button class="btn-theme">🔬 Science</button>
+                            <button class="btn-theme">🌍 Histoire</button>
+                        </div>
+
+                    </div>
+
+                    <div class="global-settings">
+                        <p class="titre-configuration">Paramètre</p>
+                        <div class="global-toggle">
+                            <div class="toggle-btn">
+                                <div class="circle"></div>
+                            </div>
+                            <p>Voulez vous avoir l'option des indices ?</p>
+                        </div>
+                    </div>
+                    <div class="global-submit-btn">   
+                        <button type="submit" class="jouer-btn">C'est partie !</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="help-page" id="help-page">
+                <a class="back-btn-2" href="#menu-page"><i class="ri-arrow-go-back-line"></i></a>
+                <div class="help-details">
+                    <div>
+                        <h1>Règles du jeu</h1>
+                    </div>
+                    <div>
+                        <p>Bienvenue dans ce défi de vocabulaire ! Le but est simple : deviner le mot mystère avant que
+                            le dessin du pendu ne soit complété.</p>
+                        <p><b>Comment jouer ?</b></p>
+                        <p>1 - <b>Le Mot Mystère</b> : Au début de la partie, le mot à deviner est représenté par une
+                            série de
+                            tirets. Chaque tiret correspond à une lettre.</p>
+                        <p>2 - <b>Proposer une lettre</b> : Cliquez sur une lettre du clavier virtuel ou utilisez votre
+                            propre
+                            clavier.</p>
+                        <p class="paragraphe-decale">. Si la lettre est dans le mot : Elle s'affiche à sa place (ou ses
+                            places, si elle est
+                            présente plusieurs fois).</p>
+                        <p class="paragraphe-decale">. Si la lettre n'est pas dans le mot : Une partie du dessin du
+                            pendu apparaît et vous perdez
+                            une tentative.</p>
+                        <p>3 - <b>Les Tentatives</b> : Vous disposez de 6 essais (ce chiffre peut varier selon votre
+                            configuration) avant que la partie ne soit perdue.</p>
+                        <p><b>Comment gagner ?</b></p>
+                        <p>. <b>Victoire</b> : Vous gagnez si vous trouvez toutes les lettres du mot avant que le pendu
+                            ne soit
+                            entièrement dessiné.</p>
+                        <p>. <b>Défaite</b> : La partie s'arrête si le dessin est terminé. Le mot mystère vous sera
+                            alors
+                            révélé.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../static/js/index.js"></script>
 </body>
+
 </html>
