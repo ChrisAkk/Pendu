@@ -12,10 +12,10 @@ def welcome():
 
 @routes_bp.route('/game', methods=['POST'])
 def to_game():
-    theme = request.form.get('theme').split()
+    theme = request.form.get('theme').split(',')
     essais = request.form.get('essais')
     caractere = request.form.get('caractere')
     indice = request.form.get('indice')
     aleatoire = request.form.get('aleatoire')
     print(theme, essais, caractere, indice, aleatoire)
-    return render_template('game.html', theme=theme, essais=essais)
+    return render_template('game.html', theme=theme, essais=essais, caractere=caractere, indice=indice, aleatoire=aleatoire)

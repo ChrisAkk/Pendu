@@ -222,9 +222,9 @@ body{
     right: 0;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     width: 50vw;
-    padding: 3rem;
+    padding: 10px 3rem 10px 3rem;
     gap: 2rem;
 
     background: url(../img/wood.png);
@@ -243,9 +243,8 @@ body{
 }
 
 .configuration-page .titre {
-    font-size: 3rem;
+    font-size: 2rem;
     color: #fff;
-    margin-bottom: 2rem;
 }
 
 .titre-configuration{
@@ -255,7 +254,7 @@ body{
 
 .sous-titre-theme{
     color: #d4d4d4;
-    margin-bottom: 2rem;
+    margin-bottom: 10px;
 }
 
 .configuration-page form{
@@ -397,7 +396,7 @@ body{
 
 .global-toggle-1,
 .global-toggle-2{
-    margin-top: 1rem;
+    margin-top: 10px;
     display: flex;
     align-items: center;
 }
