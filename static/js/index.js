@@ -44,18 +44,26 @@ btnTheme.forEach(bouton => {
 // Les boutons toggle
 
 const toggleBtn1 = document.querySelector('.toggle-btn-1');
-const circleOfBtn1 = document.querySelector('.circle-1')
+const circleOfBtn1 = document.querySelector('.circle-1');
+const inputIndiceSelected = document.querySelector('#hidden-indice');
 
 if (toggleBtn1 && circleOfBtn1) {
     toggleBtn1.addEventListener('click', () => {
         toggleBtn1.classList.toggle('on');
         circleOfBtn1.classList.toggle('on');
+
+        if (toggleBtn1.classList.contains('on')) {
+            inputIndiceSelected.value = 'on';
+        } else {
+            inputIndiceSelected.value = 'off';
+        }
     })
 }
 
 const toggleBtn2 = document.querySelector('.toggle-btn-2');
 const circleOfBtn2 = document.querySelector('.circle-2');
 const sliderCaractere = document.querySelector('.slider-2');
+const inputAleatoireSelected = document.querySelector('#hidden-aleatoire');
 
 if (toggleBtn2 && circleOfBtn2) {
     toggleBtn2.addEventListener('click', () => {
@@ -64,8 +72,10 @@ if (toggleBtn2 && circleOfBtn2) {
 
         if (toggleBtn2.classList.contains('on')) {
             sliderCaractere.classList.add('disabled');
+            inputAleatoireSelected.value = 'on';
         } else {
             sliderCaractere.classList.remove('disabled');
+            inputAleatoireSelected.value = 'off';
         }
     })
 }

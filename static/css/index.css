@@ -318,6 +318,10 @@ body{
     justify-content: space-between;
 }
 
+.proposition span{
+    color: #fff;
+}
+
 .line-1,
 .line-2,
 .line-3 {

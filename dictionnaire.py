@@ -1,8 +1,4 @@
-#Les mots et les indices liés à ces mêmes mots ont été générés par une IA.
-#Le dictionnaire ci-dessous recense les différents mots disponibles pour le pendu ; ils sont classés par thème et par nombre de lettres dans le mot.
-
-dictionnaire_des_mots =  
-{
+dictionnaire_des_mots = {
     "ANIMAUX": {
 
         "4_6": {
