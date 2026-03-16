@@ -183,21 +183,32 @@ body{
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     background-position: center;
+    border-top: 5px solid #000;
 }
 
 .menu-start {
-    background: url(../img/wood.png);
+    background: url(../img/menu.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    position: absolute;
+    top: 0;
+
     padding: 3rem;
-    border: 3px solid #000;
+    width: 500px;
+    height: 700px;
     border-radius: 10px;
-    margin-left: 20rem;
+    margin-left: 10rem;
+}
+
+.btn-configuration{
+    margin-top: 16rem;
 }
 
 .menu-start button, 
@@ -206,17 +217,26 @@ body{
     font-size: 3rem;
     background: none;
     border: none;
-    margin-bottom: 50px;
     cursor: pointer;
     transition: .3s;
     text-decoration: none;
     color: #fff;
     border-bottom: 2px solid transparent;
+    margin-bottom: 44px;
+    text-shadow:
+        0 0 5px #efa2a3,
+        0 0 10px #efa2a3,
+        0 0 20px #efa2a3,
+        0 0 40px #efa2a3;
 }
 
 .menu-start button:hover, 
 .menu-start a:hover{
-    border-bottom: 2px solid #fff;
+    text-shadow:
+        0 0 20px #efa2a3,
+        0 0 40px #efa2a3,
+        0 0 60px #efa2a3,
+        0 0 100px #efa2a3;
     color: #fff;
 }
 
@@ -228,10 +248,10 @@ body{
     right: 0;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 100%;
     width: 50vw;
-    padding: 10px 3rem 10px 3rem;
-    gap: 2rem;
+    padding: 20px 3rem 20px 3rem;
 
     background: url(../img/wood.png);
     background-repeat: no-repeat;
@@ -272,7 +292,6 @@ body{
 
 .configuration-page .input{
     width: 100%;
-    margin-top: 5px;
 }
 
 .slider-1,
@@ -284,7 +303,7 @@ body{
     background-color: #efa2a3;
     outline: none;
     transition: opacity .3s;
-    box-shadow: 1px 0px 10px 1px #000;
+    box-shadow: 1px 0px 10px 1px #000
 }
 
 .slider-2.disabled{
@@ -339,7 +358,7 @@ body{
 .line-3 button {
     width: 100%;
     font-size: 15px;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 20px;
     background: #efa2a3;
     border: 1px solid #000;
@@ -380,7 +399,7 @@ body{
 .circle-1,
 .circle-2{
     position: absolute;
-    left: 2px;
+    left: 3px;
     top: 2px;
     width: 25px;
     height: 25px;
@@ -392,7 +411,7 @@ body{
 .circle-1.on,
 .circle-2.on{
     left: 33px;
-    right: 2px;
+    right: 3px;
 }
 
 .toggle-btn-1.on,
@@ -463,6 +482,11 @@ body{
 
 .help-details h1{
     font-size: 3rem;
+    text-shadow:
+        0 0 20px #efa2a3,
+        0 0 40px #efa2a3,
+        0 0 60px #efa2a3,
+        0 0 100px #efa2a3;
 }
 
 .help-details p{
