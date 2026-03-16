@@ -3,6 +3,7 @@
 # Ne toucher à rien je vous expliquerai tout.
 
 from flask import Blueprint, render_template, request
+from dictionnaire import dictionnaire_des_mots
 
 routes_bp = Blueprint('routes', __name__)
 
