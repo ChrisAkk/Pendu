@@ -15,43 +15,28 @@
 
         <div class="global-word-part">
             <div class="word-part">
-                
+                {{lettre}}
             </div>
             <div class="letters-part">
-                <div class="line-1">
-                    <button>A</button>
-                    <button>B</button>
-                    <button>C</button>
-                    <button>D</button>
-                    <button>E</button>
-                    <button>F</button>
-                    <button>G</button>
-                    <button>H</button>
-                    <button>I</button>
-                </div>
+                <form action="/take_chance" method="POST">
+                    <div class="line-1">
+                        {% for i in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'] %}
+                            <button type="submit" name="letters" value="{{i}}">{{i}}</button>
+                        {% endfor %}
+                    </div>
 
-                <div class="line-2">
-                    <button>J</button>
-                    <button>K</button>
-                    <button>L</button>
-                    <button>M</button>
-                    <button>N</button>
-                    <button>O</button>
-                    <button>P</button>
-                    <button>Q</button>
-                    <button>R</button>
-                </div>
+                    <div class="line-2">
+                        {% for i in ['J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'] %}
+                            <button type="submit" name="letters" value="{{i}}">{{i}}</button>
+                        {% endfor %}
+                    </div>
 
-                <div class="line-3">
-                    <button>S</button>
-                    <button>T</button>
-                    <button>U</button>
-                    <button>V</button>
-                    <button>W</button>
-                    <button>X</button>
-                    <button>Y</button>
-                    <button>Z</button>
-                </div>
+                    <div class="line-3">
+                        {% for i in ['S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] %}
+                            <button type="submit" name="letters" value="{{i}}">{{i}}</button>
+                        {% endfor %}
+                    </div>
+                </form>
             </div>
         </div>
     </div>

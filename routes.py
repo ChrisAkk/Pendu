@@ -13,10 +13,17 @@ def welcome():
 
 @routes_bp.route('/game', methods=['POST'])
 def to_game():
+    ''' Cette fonction doit uniquement renvoyer la page de jeu en trouvant le mot grace aux infos rentrer dans le panneau de configuration'''
     theme = request.form.get('theme').split(',')
     essais = request.form.get('essais')
     caractere = request.form.get('caractere')
     indice = request.form.get('indice')
     aleatoire = request.form.get('aleatoire')
-    print(theme, essais, caractere, indice, aleatoire)
-    return render_template('game.html', theme=theme, essais=essais, caractere=caractere, indice=indice, aleatoire=aleatoire)
+    
+    return render_template('game.html')
+
+@routes_bp.route('/take_chance', methods=['POST'])
+def take_chance():
+    ''' Cette fonction doit voir si la lettre est dans le mot ou pas'''
+    lettre = request.form.get('letters')
+    return render_template('game.html', lettre=lettre)
