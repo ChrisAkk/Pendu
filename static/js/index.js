@@ -112,3 +112,26 @@ document.addEventListener('mousemove', (e) => {
         spark.remove();
     }, 600);
 });
+
+// bouton clavier 
+
+let btnLetters = document.querySelectorAll('.btn-letters');
+let letter;
+
+window.focus();
+
+window.addEventListener('keydown', (event) => {
+    if (winJs === 'true'){
+        return;
+    }
+
+    letter = event.key.toUpperCase();
+    console.log(letter);
+    
+    btnLetters.forEach(button => {
+        if (button.value === letter) {
+            button.focus()
+            button.click()
+        }
+    })
+})

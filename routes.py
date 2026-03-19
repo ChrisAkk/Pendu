@@ -10,6 +10,7 @@ routes_bp = Blueprint('routes', __name__)
 mot = ''
 essais = 0
 compteur = 0
+nombre_essais_restant = 0
 
 @routes_bp.route('/')
 def welcome():
@@ -56,12 +57,12 @@ def to_game():
 @routes_bp.route('/take_chance', methods=['POST'])
 def take_chance():
     ''' Cette fonction doit voir si la lettre est dans le mot ou pas'''
-    global mot, essais, mot_cache, compteur, win
+    global mot, essais, mot_cache, compteur, win, nombre_essais_restant
     win = None
     lettre_dans_mot = False
     lettre = request.form.get('letters')
 
-    if int(essais) > compteur:
+    if int(essais) > compteur + 1:
 
         for i in range(len(mot)):
             if lettre == mot[i]:
@@ -70,15 +71,16 @@ def take_chance():
 
         if not lettre_dans_mot:
             compteur += 1
+            nombre_essais_restant = int(essais) - int(compteur)
 
         if ''.join(mot_cache) == mot:
             win = True
             compteur = 0
-            return render_template('game.html', lettre=lettre, essais=essais, mot=mot, mot_cache=mot_cache, win=win)
+            return render_template('game.html', lettre=lettre, essais=essais, mot=mot, mot_cache=mot_cache, win=win, nombre_essais_restant=nombre_essais_restant)
         
-        return render_template('game.html', lettre=lettre, essais=essais, mot=mot, mot_cache=mot_cache, win=win)
+        return render_template('game.html', lettre=lettre, essais=essais, mot=mot, mot_cache=mot_cache, win=win, nombre_essais_restant=nombre_essais_restant)
     
     else : 
         win = False
         compteur = 0
-        return render_template('game.html', lettre=lettre, essais=essais, mot=mot, mot_cache=mot_cache, win=win) 
+        return render_template('game.html', lettre=lettre, essais=essais, mot=mot, mot_cache=mot_cache, win=win, nombre_essais_restant=nombre_essais_restant) 
