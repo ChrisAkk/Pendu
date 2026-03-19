@@ -57,6 +57,11 @@ body{
     color: #a11a1a;
 }
 
+.space{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 .line-1,
 .line-2,
 .line-3{
@@ -85,4 +90,10 @@ button{
 button:hover{
     padding: 1.5rem;
     opacity: 1;
+}
+
+.btn-perdu{
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
 }

@@ -38,7 +38,7 @@ def to_game():
 
     # mot
     mot = choice(list(dictionnaire_des_mots[theme][caractere].keys()))
-    mot_cache = ['_' for l in mot]
+    mot_cache = ['_' if l != ' ' else ' ' for l in mot]
 
     # indice 
     indice = request.form.get('indice')
@@ -49,15 +49,16 @@ def to_game():
 
     # essais
     essais = request.form.get('essais')
+    win = None
     
-    return render_template('game.html', mot=mot, indice=indice, essais=essais, mot_cache=mot_cache)
+    return render_template('game.html', mot=mot, indice=indice, essais=essais, mot_cache=mot_cache, win=win)
 
 @routes_bp.route('/take_chance', methods=['POST'])
 def take_chance():
     ''' Cette fonction doit voir si la lettre est dans le mot ou pas'''
-    global mot, essais, mot_cache, compteur
-
+    global mot, essais, mot_cache, compteur, win
     win = None
+    lettre_dans_mot = False
     lettre = request.form.get('letters')
 
     if int(essais) > compteur:
@@ -65,19 +66,20 @@ def take_chance():
         for i in range(len(mot)):
             if lettre == mot[i]:
                 mot_cache[i] = lettre
+                lettre_dans_mot = True
+
+        if not lettre_dans_mot:
+            compteur += 1
 
         if ''.join(mot_cache) == mot:
             print("c'est pareil")
-            mot, mot_cache = '', []
             win = True
             compteur = 0
             return render_template('game.html', lettre=lettre, essais=essais, mot=mot, mot_cache=mot_cache, win=win)
         
-        compteur += 1
         return render_template('game.html', lettre=lettre, essais=essais, mot=mot, mot_cache=mot_cache, win=win)
     
     else : 
-        mot, mot_cache = '', []
         win = False
         compteur = 0
         return render_template('game.html', lettre=lettre, essais=essais, mot=mot, mot_cache=mot_cache, win=win) 

@@ -17,34 +17,60 @@
             <div class="word-part">
                 {% if win == None %}
                     {% for l in mot_cache %}
-                        <p class="mot-en-cours">{{l}}</p>
+                        {% if l == ' ' %}
+                            <p class="space"></p>
+                        {% else %}
+                            <p class="mot-en-cours">{{l}}</p>
+                        {% endif %}
                     {% endfor %}
+
                 {% elif win == True %}
                     {% for l in mot_cache %}
                         <p class="mot-trouver">{{l}}</p>
                     {% endfor %}
-                {% else %}
+
+                {% elif win == False %}
                     {% for l in mot %}
                         <p class="mot-non-trouver">{{l}}</p>
+                    {% endfor %}
+                {% endif %}
             </div>
             <div class="letters-part">
                 <form action="/take_chance" method="POST">
                     <div class="line-1">
-                        {% for i in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'] %}
-                            <button type="submit" name="letters" value="{{i}}">{{i}}</button>
-                        {% endfor %}
+                        {% if win == None %}
+                            {% for i in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'] %}
+                                <button type="submit" name="letters" value="{{i}}">{{i}}</button>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'] %}
+                                <button class="btn-perdu">{{i}}</button>
+                            {% endfor %}
+                        {% endif %}
                     </div>
 
                     <div class="line-2">
-                        {% for i in ['J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'] %}
-                            <button type="submit" name="letters" value="{{i}}">{{i}}</button>
-                        {% endfor %}
+                        {% if win == None %}
+                            {% for i in ['J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'] %}
+                                <button type="submit" name="letters" value="{{i}}">{{i}}</button>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in ['J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'] %}
+                                <button class="btn-perdu">{{i}}</button>
+                            {% endfor %}
+                        {% endif %}
                     </div>
 
                     <div class="line-3">
-                        {% for i in ['S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] %}
-                            <button type="submit" name="letters" value="{{i}}">{{i}}</button>
-                        {% endfor %}
+                        {% if win == None %}
+                            {% for i in ['S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] %}
+                                <button type="submit" name="letters" value="{{i}}">{{i}}</button>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in ['S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] %}
+                                <button class="btn-perdu">{{i}}</button>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </form>
             </div>
