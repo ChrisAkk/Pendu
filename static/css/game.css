@@ -34,10 +34,27 @@ body{
 
 .global-word-part{
     width: 50%;
-    height: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.word-part{
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 20px;
+    font-size: 2rem;
+}
+
+.mot-trouver{
+    color: #64c779;
+}
+
+.mot-non-trouver{
+    color: #a11a1a;
 }
 
 .line-1,

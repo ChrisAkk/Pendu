@@ -15,7 +15,17 @@
 
         <div class="global-word-part">
             <div class="word-part">
-                {{lettre}}
+                {% if win == None %}
+                    {% for l in mot_cache %}
+                        <p class="mot-en-cours">{{l}}</p>
+                    {% endfor %}
+                {% elif win == True %}
+                    {% for l in mot_cache %}
+                        <p class="mot-trouver">{{l}}</p>
+                    {% endfor %}
+                {% else %}
+                    {% for l in mot %}
+                        <p class="mot-non-trouver">{{l}}</p>
             </div>
             <div class="letters-part">
                 <form action="/take_chance" method="POST">
