@@ -72,7 +72,6 @@ def take_chance():
             compteur += 1
 
         if ''.join(mot_cache) == mot:
-            print("c'est pareil")
             win = True
             compteur = 0
             return render_template('game.html', lettre=lettre, essais=essais, mot=mot, mot_cache=mot_cache, win=win)

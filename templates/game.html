@@ -10,7 +10,13 @@
 <body>
     <div class="global-container">
         <div class="global-body-part">
-            <p>{{essais}}</p>
+            {% if win == True %}
+                <p>gagner</p>
+            {% elif win == False %}
+                <p>perdue</p>
+            {% else %}
+                <p>en cours</p>
+            {% endif %}
         </div>
 
         <div class="global-word-part">
