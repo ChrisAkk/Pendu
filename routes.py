@@ -30,9 +30,9 @@ def to_game():
     if aleatoire == 'on':
         caractere = randint(1, 3)
     
-    if caractere == 1:
+    if int(caractere) == 1:
         caractere = '4_6'
-    elif caractere == 2:
+    elif int(caractere) == 2:
         caractere = '7_10'
     else:
         caractere = '11_et_plus'
