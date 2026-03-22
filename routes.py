@@ -11,6 +11,9 @@ mot = ''
 essais = 0
 compteur = 0
 nombre_essais_restant = 0
+lettre_selectionne = []
+image_index = 0
+ticket_triche = 0
 
 @routes_bp.route('/')
 def welcome():
@@ -19,7 +22,12 @@ def welcome():
 @routes_bp.route('/game', methods=['POST'])
 def to_game():
     ''' Cette fonction doit uniquement renvoyer la page de jeu en trouvant le mot grace aux infos rentrer dans le panneau de configuration'''
-    global mot, essais, mot_cache
+    global mot, essais, mot_cache, lettre_selectionne, image_index, compteur, ticket_triche
+
+    compteur = 0
+    lettre_selectionne = []
+    image_index = 0
+    ticket_triche = randint(0, 10_000)
 
     # theme
     theme = choice(request.form.get('theme').split(','))
@@ -52,15 +60,22 @@ def to_game():
     essais = request.form.get('essais')
     win = None
     
-    return render_template('game.html', mot=mot, indice=indice, essais=essais, mot_cache=mot_cache, win=win)
+    return render_template('game.html', mot=mot, indice=indice, essais=essais, mot_cache=mot_cache, win=win, lettre_selectionne=lettre_selectionne, image_index=image_index, ticket_triche=ticket_triche)
 
 @routes_bp.route('/take_chance', methods=['POST'])
 def take_chance():
     ''' Cette fonction doit voir si la lettre est dans le mot ou pas'''
-    global mot, essais, mot_cache, compteur, win, nombre_essais_restant
+    global mot, essais, mot_cache, compteur, win, nombre_essais_restant, lettre_selectionne, image_index, ticket_triche
     win = None
     lettre_dans_mot = False
     lettre = request.form.get('letters')
+    lettre_selectionne.append(lettre)
+    ticket = request.form.get('ticket')
+
+    if int(ticket) != ticket_triche :
+        return render_template('index.html')
+    else:
+        ticket_triche += 1
 
     if int(essais) > compteur + 1:
 
@@ -72,15 +87,44 @@ def take_chance():
         if not lettre_dans_mot:
             compteur += 1
             nombre_essais_restant = int(essais) - int(compteur)
+            image_index = int(round(compteur * (12 / int(essais))))
+            print(image_index)
 
         if ''.join(mot_cache) == mot:
             win = True
-            compteur = 0
-            return render_template('game.html', lettre=lettre, essais=essais, mot=mot, mot_cache=mot_cache, win=win, nombre_essais_restant=nombre_essais_restant)
+            return render_template('game.html', 
+                                   lettre=lettre, 
+                                   essais=essais, 
+                                   mot=mot, 
+                                   mot_cache=mot_cache, 
+                                   win=win, 
+                                   nombre_essais_restant=nombre_essais_restant, 
+                                   image_index=image_index, 
+                                   ticket_triche=ticket_triche
+                                   )
         
-        return render_template('game.html', lettre=lettre, essais=essais, mot=mot, mot_cache=mot_cache, win=win, nombre_essais_restant=nombre_essais_restant)
+        return render_template('game.html', 
+                               lettre=lettre, 
+                               essais=essais, 
+                               mot=mot, 
+                               mot_cache=mot_cache, 
+                               win=win, 
+                               nombre_essais_restant=nombre_essais_restant, 
+                               lettre_selectionne=lettre_selectionne, 
+                               image_index=image_index, 
+                               ticket_triche=ticket_triche
+                               )
     
     else : 
         win = False
-        compteur = 0
-        return render_template('game.html', lettre=lettre, essais=essais, mot=mot, mot_cache=mot_cache, win=win, nombre_essais_restant=nombre_essais_restant) 
+        return render_template('game.html', 
+                               lettre=lettre, 
+                               essais=essais, 
+                               mot=mot, 
+                               mot_cache=mot_cache, 
+                               win=win, 
+                               nombre_essais_restant=nombre_essais_restant, 
+                               image_index=image_index, 
+                               ticket_triche=ticket_triche
+                               ) 
+ 

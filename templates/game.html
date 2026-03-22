@@ -8,20 +8,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
 </head>
 <body>
+ 
+    {% if win == True%}
+        <div class="result-container">
+            <p>gagner</p>
+            <a href="{{url_for('routes.welcome')}}">quitter</a>
+        </div>
+    {% elif win == False %}
+        <div class="result-container">
+            <p>perdue</p>
+            <a href="{{url_for('routes.welcome')}}">quitter</a>
+        </div>
+    {% endif %}
+  
     <div class="global-container">
         <div class="global-body-part">
             {% if win == True %}
-                <p>gagner</p>
-                <a href="{{url_for('routes.welcome')}}">quitter</a>
+                <img src="../static/img/pendu/win.png">
             {% elif win == False %}
-                <p>perdue</p>
-                <a href="{{url_for('routes.welcome')}}">quitter</a>
+                <img src="../static/img/pendu/lost.png">
             {% else %}
-                <p>en cours</p>
                 {% if nombre_essais_restant %}
-                    <p>nombre d'essais : {{ nombre_essais_restant }}</p>
+                    <img src="../static/img/pendu/{{image_index}}.png">
                 {% else %}
-                    <p>nombre d'essais : {{ essais }}</p>
+                    <img src="../static/img/pendu/{{image_index}}.png">
                 {% endif %}
             {% endif %}
         </div>
@@ -53,7 +63,11 @@
                     <div class="line-1">
                         {% if win == None %}
                             {% for i in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'] %}
-                                <button type="submit" name="letters" value="{{i}}" class="btn-letters">{{i}}</button>
+                                {% if i in lettre_selectionne %}
+                                    <button type="submit" name="letters" value="{{i}}" class="btn-letters disabled">{{i}}</button>
+                                {% else %}
+                                    <button type="submit" name="letters" value="{{i}}" class="btn-letters">{{i}}</button>
+                                {% endif %}
                             {% endfor %}
                         {% else %}
                             {% for i in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'] %}
@@ -65,7 +79,11 @@
                     <div class="line-2">
                         {% if win == None %}
                             {% for i in ['J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'] %}
-                                <button type="submit" name="letters" value="{{i}}" class="btn-letters">{{i}}</button>
+                                {% if i in lettre_selectionne %}
+                                    <button type="submit" name="letters" value="{{i}}" class="btn-letters disabled">{{i}}</button>
+                                {% else %}
+                                    <button type="submit" name="letters" value="{{i}}" class="btn-letters">{{i}}</button>
+                                {% endif %}
                             {% endfor %}
                         {% else %}
                             {% for i in ['J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'] %}
@@ -77,7 +95,11 @@
                     <div class="line-3">
                         {% if win == None %}
                             {% for i in ['S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] %}
-                                <button type="submit" name="letters" value="{{i}}" class="btn-letters">{{i}}</button>
+                                {% if i in lettre_selectionne %}
+                                    <button type="submit" name="letters" value="{{i}}" class="btn-letters disabled">{{i}}</button>
+                                {% else %}
+                                    <button type="submit" name="letters" value="{{i}}" class="btn-letters">{{i}}</button>
+                                {% endif %}
                             {% endfor %}
                         {% else %}
                             {% for i in ['S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] %}
@@ -85,13 +107,14 @@
                             {% endfor %}
                         {% endif %}
                     </div>
+
+                    <input type="hidden" name="ticket" value="{{ticket_triche}}">
                 </form>
             </div>
         </div>
     </div>
     <script>
         let winJs = "{{ 'true' if win != None else 'false'}}"
-        console.log(winJs)
     </script>
     <script src="../static/js/index.js"></script>
 </body>

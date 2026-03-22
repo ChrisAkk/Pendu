@@ -24,6 +24,24 @@ if (btnConfiguration && menuConfiguration) {
     
 }
 
+const menuPercher = document.querySelector('.menu-start');
+const btnAddPercher = document.querySelector('.welcome-btn');
+const btnRemovePercher = document.querySelector('.back-btn-1')
+
+if (btnAddPercher) {
+    btnAddPercher.addEventListener('click', () => {
+        setTimeout(() => {
+            menuPercher.classList.add('visible');
+        }, 500)
+    })
+}
+
+if (btnRemovePercher) {
+    btnRemovePercher.addEventListener('click', () => {
+        menuPercher.classList.remove('visible')
+    })
+}
+
 // Les boutons de theme
 
 const btnTheme = document.querySelectorAll('.btn-theme')

@@ -18,6 +18,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    overflow: hidden;
 }
 
 .global-container{
@@ -30,6 +31,13 @@ body{
 
 .global-body-part{
     width: 50%;
+}
+
+.global-body-part img{
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    left: 0;
 }
 
 .global-word-part{
@@ -72,6 +80,15 @@ body{
     margin-bottom: 5px;
 }
 
+.line-1 .disabled,
+.line-2 .disabled,
+.line-3 .disabled{
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+
 button{
     padding: 1rem;
     background: url(../img/wood.png);
@@ -96,4 +113,22 @@ button:hover{
     opacity: 0.5;
     pointer-events: none;
     cursor: not-allowed;
+}
+
+.result-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    background: #000;
+    color: #fff;
+    padding: 5rem;
+    border-radius: 10px;
+    font-size: 2rem;
 }

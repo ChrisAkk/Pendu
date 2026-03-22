@@ -204,6 +204,14 @@ body{
     height: 700px;
     border-radius: 10px;
     margin-left: 10rem;
+
+    opacity: 0;
+    transform: translateY(-100);
+}
+
+.menu-start.visible{
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .btn-configuration{
