@@ -131,4 +131,21 @@ button:hover{
     padding: 5rem;
     border-radius: 10px;
     font-size: 2rem;
+    opacity: 0;
+
+    transform-origin: 10px 10px;
+    animation: drop 0.5s forwards;
+    z-index: 99999999;
+}
+
+@keyframes drop{
+    0% {padding: 5rem; opacity: 0;}
+    100% {padding: 7rem; opacity: 1;}
+}
+
+@keyframes swing{
+    0% {transform: translate(-50%, -50%) rotateZ(0deg);}
+    50% {transform: translate(-50%, -50%) rotateZ(80deg);}
+    70% {transform: translate(-50%, -50%) rotateZ(70deg);}
+    100%{transform: translate(-50%, -50%) rotateZ(75deg);}
 }

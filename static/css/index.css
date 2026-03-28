@@ -197,21 +197,24 @@ body{
     flex-direction: column;
 
     position: absolute;
-    top: 0;
+    top: -500px;
+    opacity: 0;
 
     padding: 3rem;
     width: 500px;
     height: 700px;
     border-radius: 10px;
     margin-left: 10rem;
-
-    opacity: 0;
-    transform: translateY(-100);
 }
 
 .menu-start.visible{
-    opacity: 1;
-    transform: translateY(0);
+    animation: apparition 1s forwards;
+}
+
+@keyframes apparition {
+    0% {top: -250px; opacity: 0;}
+    50% {opacity: 0.3;}
+    100% {top: 0; opacity: 100;}
 }
 
 .btn-configuration{
