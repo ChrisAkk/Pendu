@@ -29,6 +29,42 @@ body{
     height: 100vh;
 }
 
+.indice-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    background: none;
+    border: 1px solid #000;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+}
+
+.indice{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+    background: #000;
+    color: #fff;
+    opacity: 0;
+    z-index: 9999;
+}
+
+.indice.on{
+    opacity: 1;
+}
+
+.indice-btn:hover{
+    padding: auto;
+    width: 70px;
+    height: 70px;
+}
 .global-body-part{
     width: 50%;
 }

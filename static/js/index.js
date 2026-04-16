@@ -153,3 +153,14 @@ window.addEventListener('keydown', (event) => {
         }
     })
 })
+
+// bouton indice 
+
+const btnIndice = document.querySelector('.indice-btn');
+const indice = document.querySelector('.indice')
+
+if (btnIndice) {
+    btnIndice.addEventListener('click', () => {
+        indice.classList.toggle('on');
+    })
+}

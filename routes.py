@@ -47,7 +47,7 @@ def to_game():
 
     # mot
     mot = choice(list(dictionnaire_des_mots[theme][caractere].keys()))
-    mot_cache = ['_' if l != ' ' else ' ' for l in mot]
+    mot_cache = ['_' if l not in [' ', "'"] else ' ' for l in mot]
 
     # indice 
     indice = request.form.get('indice')
@@ -77,7 +77,7 @@ def take_chance():
     else:
         ticket_triche += 1
 
-    if int(essais) > compteur + 1:
+    if int(essais) > compteur:
 
         for i in range(len(mot)):
             if lettre == mot[i]:

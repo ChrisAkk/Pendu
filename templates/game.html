@@ -22,6 +22,16 @@
     {% endif %}
   
     <div class="global-container">
+        <div class="global-indice">
+            {% if indice != None %}
+                <button class="indice-btn"><i class="ri-question-mark"></i></button>
+            {% endif %}
+
+            <div class="indice">
+                <p>{{indice}}</p>
+            </div>
+        </div>
+
         <div class="global-body-part">
             {% if win == True %}
                 <img src="../static/img/pendu/win.png">
