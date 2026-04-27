@@ -94,11 +94,22 @@ body{
 }
 
 .mot-trouver{
-    color: #64c779;
+    color: #3b8d4d;
+    text-shadow:
+        0 0 5px #6eda85,
+        0 0 10px #6eda85,
+        0 0 20px #6eda85,
+        0 0 40px #6eda85;
+    
 }
 
 .mot-non-trouver{
     color: #a11a1a;
+    text-shadow:
+        0 0 5px #c32323,
+        0 0 10px #c32323,
+        0 0 20px #c32323,
+        0 0 40px #c32323;
 }
 
 .space{
@@ -138,11 +149,21 @@ button{
     cursor: pointer;
     transition: .2s;
     opacity: 0.8;
+    text-shadow:
+        0 0 5px #efa2a3,
+        0 0 10px #efa2a3,
+        0 0 20px #efa2a3,
+        0 0 40px #efa2a3;
 }
 
 button:hover{
     padding: 1.5rem;
     opacity: 1;
+    text-shadow:
+        0 0 20px #efa2a3,
+        0 0 40px #efa2a3,
+        0 0 60px #efa2a3,
+        0 0 100px #efa2a3;
 }
 
 .btn-perdu{

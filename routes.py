@@ -8,12 +8,16 @@ from random import choice, randint
 
 routes_bp = Blueprint('routes', __name__)
 mot = ''
-essais = 0
+lettre_selectionne = []
+
 compteur = 0
 nombre_essais_restant = 0
-lettre_selectionne = []
+essais = 0
+
 image_index = 0
 ticket_triche = 0
+
+indice = None
 
 @routes_bp.route('/')
 def welcome():
@@ -22,7 +26,7 @@ def welcome():
 @routes_bp.route('/game', methods=['POST'])
 def to_game():
     ''' Cette fonction doit uniquement renvoyer la page de jeu en trouvant le mot grace aux infos rentrer dans le panneau de configuration'''
-    global mot, essais, mot_cache, lettre_selectionne, image_index, compteur, ticket_triche
+    global mot, mot_cache, lettre_selectionne, image_index, compteur, ticket_triche, indice, essais
 
     compteur = 0
     lettre_selectionne = []
@@ -43,7 +47,7 @@ def to_game():
     elif int(caractere) == 2:
         caractere = '7_10'
     else:
-        caractere = '11_et_plus'
+        caractere = '11_et_plus' 
 
     # mot
     mot = choice(list(dictionnaire_des_mots[theme][caractere].keys()))
@@ -60,12 +64,21 @@ def to_game():
     essais = request.form.get('essais')
     win = None
     
-    return render_template('game.html', mot=mot, indice=indice, essais=essais, mot_cache=mot_cache, win=win, lettre_selectionne=lettre_selectionne, image_index=image_index, ticket_triche=ticket_triche)
+    return render_template('game.html', 
+                           mot=mot, 
+                           indice=indice, 
+                           essais=essais, 
+                           mot_cache=mot_cache, 
+                           win=win, 
+                           lettre_selectionne=lettre_selectionne, 
+                           image_index=image_index, 
+                           ticket_triche=ticket_triche)
 
 @routes_bp.route('/take_chance', methods=['POST'])
 def take_chance():
     ''' Cette fonction doit voir si la lettre est dans le mot ou pas'''
-    global mot, essais, mot_cache, compteur, win, nombre_essais_restant, lettre_selectionne, image_index, ticket_triche
+    global mot, mot_cache, compteur, win, nombre_essais_restant, lettre_selectionne, image_index, ticket_triche, indice, essais
+
     win = None
     lettre_dans_mot = False
     lettre = request.form.get('letters')
@@ -100,31 +113,34 @@ def take_chance():
                                    win=win, 
                                    nombre_essais_restant=nombre_essais_restant, 
                                    image_index=image_index, 
-                                   ticket_triche=ticket_triche
+                                   ticket_triche=ticket_triche,
+                                   indice=indice,
                                    )
         
         return render_template('game.html', 
-                               lettre=lettre, 
-                               essais=essais, 
-                               mot=mot, 
-                               mot_cache=mot_cache, 
-                               win=win, 
-                               nombre_essais_restant=nombre_essais_restant, 
-                               lettre_selectionne=lettre_selectionne, 
-                               image_index=image_index, 
-                               ticket_triche=ticket_triche
+                                lettre=lettre, 
+                                essais=essais, 
+                                mot=mot, 
+                                mot_cache=mot_cache, 
+                                win=win, 
+                                nombre_essais_restant=nombre_essais_restant, 
+                                lettre_selectionne=lettre_selectionne, 
+                                image_index=image_index, 
+                                ticket_triche=ticket_triche,
+                                indice=indice,
                                )
     
     else : 
         win = False
         return render_template('game.html', 
-                               lettre=lettre, 
-                               essais=essais, 
-                               mot=mot, 
-                               mot_cache=mot_cache, 
-                               win=win, 
-                               nombre_essais_restant=nombre_essais_restant, 
-                               image_index=image_index, 
-                               ticket_triche=ticket_triche
+                                lettre=lettre, 
+                                essais=essais, 
+                                mot=mot, 
+                                mot_cache=mot_cache, 
+                                win=win, 
+                                nombre_essais_restant=nombre_essais_restant, 
+                                image_index=image_index, 
+                                ticket_triche=ticket_triche,
+                                indice=indice,
                                ) 
  

@@ -12,11 +12,13 @@
     {% if win == True%}
         <div class="result-container">
             <p>gagner</p>
+            <a href="{{url_for('routes.welcome', _anchor='menu-page', config='true')}}" class="btn-rejouer">rejouer</a>
             <a href="{{url_for('routes.welcome')}}">quitter</a>
         </div>
     {% elif win == False %}
         <div class="result-container">
             <p>perdue</p>
+            <a href="{{url_for('routes.welcome', _anchor='menu-page', config='true')}}" class="btn-rejouer">rejouer</a>
             <a href="{{url_for('routes.welcome')}}">quitter</a>
         </div>
     {% endif %}

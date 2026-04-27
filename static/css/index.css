@@ -135,29 +135,46 @@ body{
 .welcome-page h1{
     font-size: 4rem;
     text-align: center;
+    text-shadow:
+        0 0 5px #2e2b2b,
+        0 0 5px #2e2b2b,
+        0 0 10px #2e2b2b,
+        0 0 20px #2e2b2b;
+    color: #fff;
 }
 
 .welcome-page h3{
     font-size: 2rem;
     text-align: center;
     margin-bottom: 20px;
+    text-shadow:
+        0 0 5px #2e2b2b,
+        0 0 10px #2e2b2b,
+        0 0 20px #2e2b2b,
+        0 0 40px #2e2b2b;
+    color: #fff;
 }
 
 .welcome-page a{
-    background: #000;
-    color: #fff;
+    background: #fff;
+    color: #000;
     border: none;
     padding: 10px;
     cursor: pointer;
     border-radius: 10px;
     font-size: 1.5rem;
     text-decoration: none;
+    transition: .3s;
+    box-shadow:
+        0 0 5px #2e2b2b,
+        0 0 10px #2e2b2b,
+        0 0 20px #2e2b2b,
+        0 0 40px #2e2b2b;
 }
 
 .welcome-page a:hover {
-    background: #fff;
-    color: #000;
-    transition: .3s;
+    background: #000;
+    color: #fff;
 }
 
 /* Game Page */
@@ -281,16 +298,31 @@ body{
 .configuration-page .titre {
     font-size: 2rem;
     color: #fff;
+    text-shadow:
+        0 0 5px #efa2a3,
+        0 0 10px #efa2a3,
+        0 0 20px #efa2a3,
+        0 0 40px #efa2a3;
 }
 
 .titre-configuration{
     font-size: 20px;
     color: #fff;
+    text-shadow:
+        0 0 5px #efa2a3,
+        0 0 10px #efa2a3,
+        0 0 20px #efa2a3,
+        0 0 40px #efa2a3;
 }
 
 .sous-titre-theme{
     color: #d4d4d4;
     margin-bottom: 10px;
+    text-shadow:
+        0 0 5px #efa2a3,
+        0 0 10px #efa2a3,
+        0 0 20px #efa2a3,
+        0 0 40px #efa2a3;
 }
 
 .configuration-page form{
@@ -439,6 +471,11 @@ body{
 .global-toggle-1 p,
 .global-toggle-2 p{
     color: #fff;
+    text-shadow:
+        0 0 5px #efa2a3,
+        0 0 10px #efa2a3,
+        0 0 20px #efa2a3,
+        0 0 40px #efa2a3;
 }
 
 .global-submit-btn{

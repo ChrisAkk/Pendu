@@ -14,14 +14,12 @@ if (btnConfiguration && menuConfiguration) {
             menuConfiguration.classList.remove('on');
         };
     });
-    
+
     document.addEventListener('scroll', () => {
         if (menuConfiguration.classList.contains('on')) {
             menuConfiguration.classList.remove('on');
         };
     })
-
-    
 }
 
 const menuPercher = document.querySelector('.menu-start');
@@ -32,7 +30,7 @@ if (btnAddPercher) {
     btnAddPercher.addEventListener('click', () => {
         setTimeout(() => {
             menuPercher.classList.add('visible');
-        }, 500)
+        }, 200)
     })
 }
 
@@ -54,7 +52,7 @@ let theme = [];
 
 btnTheme.forEach(bouton => {
     bouton.addEventListener('click', () => {
-        
+
         const nomTheme = bouton.dataset.theme;
         bouton.classList.toggle('selected');
 
@@ -139,13 +137,13 @@ let letter;
 window.focus();
 
 window.addEventListener('keydown', (event) => {
-    if (winJs === 'true'){
+    if (winJs === 'true') {
         return;
     }
 
     letter = event.key.toUpperCase();
     console.log(letter);
-    
+
     btnLetters.forEach(button => {
         if (button.value === letter) {
             button.focus()
@@ -164,3 +162,21 @@ if (btnIndice) {
         indice.classList.toggle('on');
     })
 }
+
+// bouton rejouer 
+
+window.addEventListener('load', () => {
+    urlParametre = new URLSearchParams(window.location.search);
+
+    if (urlParametre.get('config') === 'true') {
+        const menuConfiguration = document.querySelector('.configuration-page')
+        const menuPercher = document.querySelector('.menu-start');
+
+        if (menuPercher && menuConfiguration) {
+            setTimeout(() => {
+                menuPercher.classList.add('visible');
+                menuConfiguration.classList.add('on');
+            }, 100);
+        }
+    }
+})
