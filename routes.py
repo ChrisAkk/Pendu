@@ -1,23 +1,8 @@
-# ici on va faire toutes les routes et c'est ici que vous devriez coder. 
-# Tous ce qui est déjà présent et que vous ne comprenais pas c'est que c'est pour flask
-# Ne toucher à rien je vous expliquerai tout.
-
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, session
 from dictionnaire import dictionnaire_des_mots
 from random import choice, randint
 
 routes_bp = Blueprint('routes', __name__)
-mot = ''
-lettre_selectionne = []
-
-compteur = 0
-nombre_essais_restant = 0
-essais = 0
-
-image_index = 0
-ticket_triche = 0
-
-indice = None
 
 @routes_bp.route('/')
 def welcome():
@@ -26,121 +11,112 @@ def welcome():
 @routes_bp.route('/game', methods=['POST'])
 def to_game():
     ''' Cette fonction doit uniquement renvoyer la page de jeu en trouvant le mot grace aux infos rentrer dans le panneau de configuration'''
-    global mot, mot_cache, lettre_selectionne, image_index, compteur, ticket_triche, indice, essais
 
-    compteur = 0
-    lettre_selectionne = []
-    image_index = 0
-    ticket_triche = randint(0, 10_000)
+    session['compteur'] = 0
+    session['lettre_selectionne'] = []
+    session['image_index'] = 0
+    session['ticket_triche'] = randint(0, 10_000)
 
     # theme
-    theme = choice(request.form.get('theme').split(','))
+    session['theme'] = choice(request.form.get('theme').split(','))
 
     # caractere
-    caractere = request.form.get('caractere')
-    aleatoire = request.form.get('aleatoire')
-    if aleatoire == 'on':
-        caractere = randint(1, 3)
+    session['caractere'] = request.form.get('caractere')
+    session['aleatoire'] = request.form.get('aleatoire')
+    if session['aleatoire'] == 'on':
+        session['caractere'] = str(randint(1, 3))
     
-    if int(caractere) == 1:
-        caractere = '4_6'
-    elif int(caractere) == 2:
-        caractere = '7_10'
+    if session['caractere'] == '1':
+        session['caractere'] = '4_6'
+    elif session['caractere'] == '2':
+        session['caractere'] = '7_10'
     else:
-        caractere = '11_et_plus' 
+        session['caractere'] = '11_et_plus' 
 
     # mot
-    mot = choice(list(dictionnaire_des_mots[theme][caractere].keys()))
-    mot_cache = ['_' if l not in [' ', "'"] else ' ' for l in mot]
+    session['mot'] = choice(list(dictionnaire_des_mots[session['theme']][session['caractere']].keys()))
+    session['mot_cache'] = ['_' if l not in [' ', "'"] else l for l in session['mot']]
 
     # indice 
-    indice = request.form.get('indice')
-    if indice == 'on':
-        indice = dictionnaire_des_mots[theme][caractere][mot]
+    session['indice'] = request.form.get('indice')
+    if session['indice'] == 'on':
+        session['indice'] = dictionnaire_des_mots[session['theme']][session['caractere']][session['mot']]
     else:
-        indice = None
+        session['indice'] = None
 
     # essais
-    essais = request.form.get('essais')
+    session['essais'] = request.form.get('essais')
+    session['nombre_essais_restant'] = int(session['essais'])
     win = None
     
     return render_template('game.html', 
-                           mot=mot, 
-                           indice=indice, 
-                           essais=essais, 
-                           mot_cache=mot_cache, 
+                           mot=session['mot'], 
+                           indice=session['indice'], 
+                           essais=session['essais'], 
+                           mot_cache=session['mot_cache'], 
                            win=win, 
-                           lettre_selectionne=lettre_selectionne, 
-                           image_index=image_index, 
-                           ticket_triche=ticket_triche)
+                           lettre_selectionne=session['lettre_selectionne'], 
+                           image_index=session['image_index'], 
+                           ticket_triche=session['ticket_triche'])
 
 @routes_bp.route('/take_chance', methods=['POST'])
 def take_chance():
     ''' Cette fonction doit voir si la lettre est dans le mot ou pas'''
-    global mot, mot_cache, compteur, win, nombre_essais_restant, lettre_selectionne, image_index, ticket_triche, indice, essais
 
     win = None
     lettre_dans_mot = False
     lettre = request.form.get('letters')
-    lettre_selectionne.append(lettre)
-    ticket = request.form.get('ticket')
 
-    if int(ticket) != ticket_triche :
+    lettre_selectionne = session['lettre_selectionne']
+    lettre_selectionne.append(lettre)
+    session['lettre_selectionne'] = lettre_selectionne
+
+    ticket = request.form.get('ticket')
+    compteur = session['compteur']
+    essais = session['essais']
+
+    if int(ticket) != session['ticket_triche'] :
         return render_template('index.html')
     else:
-        ticket_triche += 1
+        session['ticket_triche'] += 1
 
     if int(essais) > compteur:
-
+        mot = session['mot']
         for i in range(len(mot)):
             if lettre == mot[i]:
+                mot_cache = session['mot_cache']
                 mot_cache[i] = lettre
+                session['mot_cache'] = mot_cache
                 lettre_dans_mot = True
 
         if not lettre_dans_mot:
             compteur += 1
-            nombre_essais_restant = int(essais) - int(compteur)
-            image_index = int(round(compteur * (12 / int(essais))))
-            print(image_index)
+            session['nombre_essais_restant'] = int(essais) - int(compteur)
+            session['image_index'] = int(round(compteur * (12 / int(essais))))
+            
+            if compteur >= int(essais):
+                win = False
 
-        if ''.join(mot_cache) == mot:
-            win = True
-            return render_template('game.html', 
-                                   lettre=lettre, 
-                                   essais=essais, 
-                                   mot=mot, 
-                                   mot_cache=mot_cache, 
-                                   win=win, 
-                                   nombre_essais_restant=nombre_essais_restant, 
-                                   image_index=image_index, 
-                                   ticket_triche=ticket_triche,
-                                   indice=indice,
-                                   )
+            session['compteur'] = compteur
+
+        if ''.join(session['mot_cache']) == mot:
+            win = True             
         
         return render_template('game.html', 
                                 lettre=lettre, 
                                 essais=essais, 
                                 mot=mot, 
-                                mot_cache=mot_cache, 
+                                mot_cache=session['mot_cache'], 
                                 win=win, 
-                                nombre_essais_restant=nombre_essais_restant, 
-                                lettre_selectionne=lettre_selectionne, 
-                                image_index=image_index, 
-                                ticket_triche=ticket_triche,
-                                indice=indice,
+                                nombre_essais_restant=session['nombre_essais_restant'], 
+                                lettre_selectionne=session['lettre_selectionne'], 
+                                image_index=session['image_index'], 
+                                ticket_triche=session['ticket_triche'],
+                                indice=session['indice'],
+                                theme=session['theme'],
+                                caractere=session['caractere'],
+                                aleatoire=session['aleatoire']
                                )
     
-    else : 
-        win = False
-        return render_template('game.html', 
-                                lettre=lettre, 
-                                essais=essais, 
-                                mot=mot, 
-                                mot_cache=mot_cache, 
-                                win=win, 
-                                nombre_essais_restant=nombre_essais_restant, 
-                                image_index=image_index, 
-                                ticket_triche=ticket_triche,
-                                indice=indice,
-                               ) 
+
  

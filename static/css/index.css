@@ -12,9 +12,8 @@
     --primary: #C49667;
 }
 
-
 body{
-    background: #000;
+    background: #000000;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -119,9 +118,8 @@ body{
     height: 100vh;
 
     background: url(../img/background-1.png);
-    background-size: cover;
+    background-size: 100vw 100vh;
     background-repeat: no-repeat;
-    background-position: center;
 }
 
 .welcome-container{
@@ -199,7 +197,6 @@ body{
     background: url(../img/background-2.png);
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
-    background-position: center;
 }
 
 .menu-start {
