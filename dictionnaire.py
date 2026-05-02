@@ -343,7 +343,7 @@ dictionnaire_des_mots = {
             "ESCRIME":    "Touche electrique et masque grillage",
             "SKI ALPIN":  "Descente sur neige a grande vitesse",
             "HANDBALL":   "But a la main, gardien et pivot",
-            "FORMULE 1":  "Aerodynamisme et strategie pneumatique",
+            "FORMULE UN":  "Aerodynamisme et strategie pneumatique",
             "MARATHON":   "Quarante-deux kilometres et des poussieres",
             "TRIATHLON":  "Trois disciplines sans interruption",
             "ESCALADE":   "Murs artificiels ou falaises naturelles",

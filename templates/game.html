@@ -11,15 +11,27 @@
  
     {% if win == True%}
         <div class="result-container">
-            <p>gagner</p>
+            <h1>Fin De La Partie</h1>
+            <p class="fin-partie">Tu as <span class="span-gagner">gagner</span> !</p>
+
+            <h2>Resultat de la partie</h2>
+            <p>Mot trouvé : <strong>{{mot}}</strong></p>
+            <p class="fin-partie">Nombre d'erreur : <strong>{{compteur}}</strong></p>
+
             <a href="{{url_for('routes.welcome', _anchor='menu-page', config='true')}}" class="btn-rejouer">rejouer</a>
-            <a href="{{url_for('routes.welcome')}}">quitter</a>
+            <a href="{{url_for('routes.welcome')}}" class="btn-quitter">quitter</a>
         </div>
     {% elif win == False %}
         <div class="result-container">
-            <p>perdue</p>
+            <h1>Fin De La Partie</h1>
+            <p class="fin-partie">tu as <span class="span-perdu">perdu...</span></p>
+
+            <h2>Resultat de la partie</h2>
+            <p>Mot non trouvé : <strong>{{mot}}</strong></p>
+            <p class="fin-partie">Nombre d'erreur : <strong>{{compteur}}</strong></p>
+
             <a href="{{url_for('routes.welcome', _anchor='menu-page', config='true')}}" class="btn-rejouer">rejouer</a>
-            <a href="{{url_for('routes.welcome')}}">quitter</a>
+            <a href="{{url_for('routes.welcome')}}" class="btn-quitter">quitter</a>
         </div>
     {% endif %}
   

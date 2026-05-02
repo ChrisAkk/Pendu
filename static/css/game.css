@@ -29,12 +29,14 @@ body{
     height: 100vh;
 }
 
+/* indice */
+
 .indice-btn{
     position: absolute;
     top: 0;
     right: 0;
     margin: 10px;
-    background: none;
+    background: transparent;
     border: 1px solid #000;
     width: 50px;
     height: 50px;
@@ -42,29 +44,49 @@ body{
     align-items: center;
     justify-content: center;
     color: #000;
+    cursor: pointer;
+    z-index: 9999;
 }
 
 .indice{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    transform: translateY(-50%);
-    background: #000;
-    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 100px;
+    color: #000;
     opacity: 0;
+    margin: 10px;
+    height: 50px;
     z-index: 9999;
+    background: transparent;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #000;
 }
 
 .indice.on{
-    opacity: 1;
+    animation: indiceDrop 1s forwards;
+    transition: .3s;
+}
+
+@keyframes indiceDrop {
+    0%{right: 0; opacity: 0;}
+    50%{opacity: 0;}
+    100%{right: 60px; opacity: 1;}
 }
 
 .indice-btn:hover{
-    padding: auto;
-    width: 70px;
-    height: 70px;
+    box-shadow:
+        0 0 5px #000,
+        0 0 10px #000,
+        0 0 20px #000,
+        0 0 40px #000;
 }
+
+/* le pendu */
+
 .global-body-part{
     width: 50%;
 }
@@ -84,6 +106,8 @@ body{
     justify-content: space-between;
     flex-direction: column;
 }
+
+/* le mot */
 
 .word-part{
     display: flex;
@@ -149,21 +173,26 @@ button{
     cursor: pointer;
     transition: .2s;
     opacity: 0.8;
-    text-shadow:
+    box-shadow:
         0 0 5px #efa2a3,
         0 0 10px #efa2a3,
         0 0 20px #efa2a3,
         0 0 40px #efa2a3;
+    z-index: 99999;
 }
 
 button:hover{
-    padding: 1.5rem;
     opacity: 1;
+    box-shadow:
+        0 0 20px #fff,
+        0 0 40px #fff,
+        0 0 60px #fff,
+        0 0 100px #fff;
     text-shadow:
-        0 0 20px #efa2a3,
-        0 0 40px #efa2a3,
-        0 0 60px #efa2a3,
-        0 0 100px #efa2a3;
+        0 0 20px #fff,
+        0 0 40px #fff,
+        0 0 60px #fff,
+        0 0 100px #fff;
 }
 
 .btn-perdu{
@@ -171,6 +200,8 @@ button:hover{
     pointer-events: none;
     cursor: not-allowed;
 }
+
+/* resultat */
 
 .result-container{
     position: absolute;
@@ -180,7 +211,7 @@ button:hover{
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
 
     background: url(../img/wood.png);
@@ -188,26 +219,79 @@ button:hover{
     background-position: center;
     background-size: cover;
     color: #fff;
-    padding: 5rem;
     border-radius: 10px;
     font-size: 2rem;
     opacity: 0;
+    width: auto;
+    padding: 1rem 2rem;
 
     transform-origin: 10px 10px;
     animation: drop 0.5s forwards;
     z-index: 99999999;
+    box-shadow:
+        0 0 20px #efa2a3,
+        0 0 40px #efa2a3,
+        0 0 60px #efa2a3,
+        0 0 100px #efa2a3;
 }
 
 @keyframes drop{
-    0% {padding: 5rem; opacity: 0;}
-    100% {padding: 7rem; opacity: 1;}
+    0% {padding: 1rem; opacity: 0;}
+    100% {padding: 2rem; opacity: 1;}
 }
 
-@keyframes swing{
-    0% {transform: translate(-50%, -50%) rotateZ(0deg);}
-    50% {transform: translate(-50%, -50%) rotateZ(80deg);}
-    70% {transform: translate(-50%, -50%) rotateZ(70deg);}
-    100%{transform: translate(-50%, -50%) rotateZ(75deg);}
+.result-container h1{
+    font-size: 2rem;
+}
+
+.result-container h2{
+    font-size: 1.5rem;
+}
+
+.result-container p{
+    font-size: 1rem;
+}
+
+.result-container a{
+    text-decoration: none;
+    color: #fff;
+    text-shadow:
+        0 0 20px #efa2a3,
+        0 0 40px #efa2a3,
+        0 0 60px #efa2a3,
+        0 0 100px #efa2a3;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.result-container a:hover{
+    text-shadow:
+        0 0 40px #efa2a3,
+        0 0 80px #efa2a3,
+        0 0 120px #efa2a3,
+        0 0 200px #efa2a3;
+}
+
+.result-container .fin-partie{
+    margin-bottom: 50px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #efa2a3;
+}
+
+.span-perdu{
+    text-shadow:
+        0 0 5px #c32323,
+        0 0 10px #c32323,
+        0 0 20px #c32323,
+        0 0 40px #c32323;
+}
+
+.span-gagner{
+    text-shadow:
+        0 0 5px #6eda85,
+        0 0 10px #6eda85,
+        0 0 20px #6eda85,
+        0 0 40px #6eda85;
 }
 
 /* Triche Page */

@@ -1,3 +1,5 @@
+# Cette partie du code ne sera pas utilisé dans le site pour le moment, mais sera présenter dans l'oral. C'est donc normal qu'elle n'est rien avoir avec le reste du projet.
+
 mots = {
 
     "ANIMAUX": {

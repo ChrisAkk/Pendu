@@ -101,13 +101,13 @@ def take_chance():
             
             if compteur >= int(essais):
                 win = False
-                historique.append(f"Défaite en {essais} essais.")
+                historique.append(f"Défaite en {essais} fautes sur {essais} sur le mot : {mot}.")
 
             session['compteur'] = compteur
 
         if ''.join(session['mot_cache']) == mot:
             win = True
-            historique.append(f"Victoire en {session['compteur']} essais sur {session['essais']} essais.")   
+            historique.append(f"Victoire en {session['compteur']} fautes sur {session['essais']} sur le mot : {mot}.")   
 
         session['historique'] = historique   
         session.modified = True      
@@ -125,5 +125,6 @@ def take_chance():
                                 indice=session['indice'],
                                 theme=session['theme'],
                                 caractere=session['caractere'],
-                                aleatoire=session['aleatoire']
+                                aleatoire=session['aleatoire'],
+                                compteur=compteur
                                )
