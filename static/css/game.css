@@ -183,7 +183,10 @@ button:hover{
     justify-content: center;
     flex-direction: column;
 
-    background: #000;
+    background: url(../img/wood.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     color: #fff;
     padding: 5rem;
     border-radius: 10px;
@@ -205,4 +208,71 @@ button:hover{
     50% {transform: translate(-50%, -50%) rotateZ(80deg);}
     70% {transform: translate(-50%, -50%) rotateZ(70deg);}
     100%{transform: translate(-50%, -50%) rotateZ(75deg);}
+}
+
+/* Triche Page */
+
+.global-triche {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+
+    background: url(../img/background-1.png);
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+}
+
+.triche-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+}
+
+.triche-page h1{
+    font-size: 4rem;
+    text-align: center;
+    text-shadow:
+        0 0 5px #2e2b2b,
+        0 0 5px #2e2b2b,
+        0 0 10px #2e2b2b,
+        0 0 20px #2e2b2b;
+    color: #fff;
+}
+
+.triche-page h3{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow:
+        0 0 5px #2e2b2b,
+        0 0 10px #2e2b2b,
+        0 0 20px #2e2b2b,
+        0 0 40px #2e2b2b;
+    color: #fff;
+}
+
+.triche-page a{
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: .3s;
+    box-shadow:
+        0 0 5px #2e2b2b,
+        0 0 10px #2e2b2b,
+        0 0 20px #2e2b2b,
+        0 0 40px #2e2b2b;
+}
+
+.triche-page a:hover {
+    background: #000;
+    color: #fff;
 }

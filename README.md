@@ -1,5 +1,7 @@
 # Pendu
 
+Groupe (MITD02): Chris Abou Karam, Yassine Krifa et Anis Chader
+
 🪓 Jeu du Pendu - Projet L1
 Ce projet a été réalisé dans le cadre de ma première année de Licence (L1). L'objectif est de créer un jeu du pendu fonctionnant avec une interface graphique web.
 

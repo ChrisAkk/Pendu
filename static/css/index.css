@@ -264,9 +264,9 @@ body{
     color: #fff;
 }
 
-/* Configuration Page */
+/* Configuration et Score Page */
 
-.configuration-page {
+.configuration-page{
     position: absolute;
     top: 100%;
     right: 0;
@@ -288,9 +288,12 @@ body{
     z-index: 9999;
 }
 
-.configuration-page.on{
+.configuration-page.on,
+.score-page.on{
     transform: translateX(0);
 }
+
+/* configuration */
 
 .configuration-page .titre {
     font-size: 2rem;
@@ -504,6 +507,121 @@ body{
 
 .jouer-btn:hover {
     background: #c68788;
+}
+
+/* score */
+
+.score-page{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50vw;
+    padding: 20px 3rem 20px 3rem;
+
+    background: url(../img/wood.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-left: 5px solid #000;
+
+    transform: translateX(100%);
+    transition: transform 0.35s ease, opacity 0.35s ease;
+    z-index: 9999;
+}
+
+.historique-remplis,
+.historique-vide{
+    max-height: 80%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #efa2a3 transparent;
+}
+
+.historique-remplis::-webkit-scrollbar,
+.historique-vide::-webkit-scrollbar{
+    width: 5px;
+    background: transparent;
+}
+
+.historique-remplis::-webkit-scrollbar-thumb,
+.historique-vide::-webkit-scrollbar-thumb{
+    background: #efa2a3;
+    border-radius: 10px;
+}
+
+.score-page h1{
+    color: #fff;
+    text-shadow:
+        0 0 5px #efa2a3,
+        0 0 10px #efa2a3,
+        0 0 20px #efa2a3,
+        0 0 40px #efa2a3;
+}
+
+.score-page h3{
+    color: #fff;
+    margin-bottom: 1rem;
+    text-shadow:
+        0 0 5px #efa2a3,
+        0 0 10px #efa2a3,
+        0 0 20px #efa2a3,
+        0 0 40px #efa2a3;
+    margin-top: 2rem;
+}
+
+.score-page p:first-of-type{
+    border-top: 1px solid #efa2a3;
+}
+
+.score-page .victoire{
+    text-shadow:
+        0 0 5px #6eda85,
+        0 0 10px #6eda85,
+        0 0 20px #6eda85,
+        0 0 40px #6eda85;
+}
+
+.score-page .defaite{
+    text-shadow:
+        0 0 5px #c32323,
+        0 0 10px #c32323,
+        0 0 20px #c32323,
+        0 0 40px #c32323;
+}
+
+.score-page p {
+    color: #fff;
+    padding: 2rem;
+    border-bottom: 1px solid #efa2a3;
+}
+
+.score-page .historique-vide{
+    background: rgba(128, 128, 128, 0.2);
+    filter: blur(2px);
+    pointer-events: none;
+    user-select: none;
+    position: relative;
+}
+
+.text-historique-vide{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #c1c1c1;
+    text-align: center;
+}
+
+.text-historique-vide h4{
+    color: #fff;
+    text-shadow:
+        0 0 5px #c1c1c1,
+        0 0 10px #c1c1c1,
+        0 0 20px #c1c1c1,
+        0 0 40px #c1c1c1;
 }
 
 /* Help Page */

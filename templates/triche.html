@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,17 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
 </head>
+
 <body>
-    <h1>Tu a tricher !</h1>
-    <a href="{{url_for('routes.welcome')}}">Retour</a>
+    <main>
+        <div class="global-triche">
+            <div class="triche-page">
+                <h1>Tu a tricher !</h1>
+                <h3>Honte à toi</h3>
+                <a href="{{url_for('routes.welcome')}}">Retour</a>
+            </div>
+        </div>
+    </main>
 </body>
+
 </html>

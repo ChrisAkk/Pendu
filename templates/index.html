@@ -27,19 +27,15 @@
                     <div class="menu-page" id="menu-page">
                         <div class="menu-start">
                             <button class="btn-configuration">Jouer</button>
+                            <button class="btn-score">Score</button>
                             <a href="#help-page">Aide</a>
-                            <a href="https://www.google.com/">Quitter</a>
                         </div>
-                    </div>
-
-                    <div class="score">
-                        <p>Score</p>
                     </div>
                 </div>
 
                 <form action="/game" method="POST">
                     <div class="configuration-page">
-                        <p class="titre">Configuration</p>
+                        <h1 class="titre">Configuration</h1>
                         <label for="tentative" class="titre-configuration">Combien d'essais</label>
                         <div class="input">
                             <input type="range" name="essais" id="slider-1" class="slider-1" min="3" max="12" value="7">
@@ -52,7 +48,8 @@
 
                         <label for="tentative" class="titre-configuration">Combien de caractére</label>
                         <div class="input">
-                            <input type="range" name="caractere" id="slider-2" class="slider-2" min="1" max="3" value="2">
+                            <input type="range" name="caractere" id="slider-2" class="slider-2" min="1" max="3"
+                                value="2">
                             <div class="proposition">
                                 <span>4-6</span>
                                 <span>7-10</span>
@@ -110,6 +107,36 @@
                         </div>
                     </div>
                 </form>
+
+                <div class="score-page">
+                    <h1>Journal des Mots</h1>
+                    <h3>Historique des 50 derniers récits</h3>
+                    {% if historique %}
+                        <div class="historique-remplis">
+                            {% for i in range(1, 51) %}
+                                {% if historique[-i] %}
+                                    {% if "Victoire" in historique[-i] %}
+                                        <p class="victoire">{{i}} - {{historique[-i]}}</p>
+                                    {% else %}
+                                        <p class="defaite">{{i}} - {{historique[-i]}}</p>
+                                    {% endif %}
+                                {% else %}
+                                    <p>{{i}} - </p>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="historique-vide">
+                            {% for i in range(1, 51) %}
+                                <p>{{i}} - </p>
+                            {% endfor %}
+                        </div>
+                        <div class="text-historique-vide"> 
+                            <h4>Le silence des mots...</h4>
+                            <h6>Jouez une partie pour briser le silence et voir vos résultats.</h6>
+                        </div>
+                    {% endif %}
+                </div>
             </div>
 
             <div class="help-page" id="help-page">

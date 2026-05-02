@@ -1,5 +1,3 @@
-
-
 mots = {
 
     "ANIMAUX": {
@@ -1916,81 +1914,53 @@ def aplatir_dictionnaire(ton_dico_actuel):
     à une bibliothèque 'plate' où chaque mot est une entrée directe.
     """
     bibliotheque_plate = {}
-    # 1. On entre dans chaque Thème (ex: "HISTOIRE")
     for theme, difficultes in ton_dico_actuel.items():
-        # 2. On entre dans chaque niveau (ex: "7_10")
         for niveau, liste_mots in difficultes.items():
-            # 3. On récupère chaque mot et ses infos
             for mot, infos in liste_mots.items():
-                # On fusionne l'indice et les tags en une seule grande phrase.
-                # On multiplie les tags par 3 pour qu'ils comptent plus que l'indice 
+     
                 portrait_robot = infos["indice"] + " " + ((" ".join(infos["tags"]) + " ") * 3)
                 
-                # On stocke tout proprement dans notre nouvelle structure
                 bibliotheque_plate[mot] = {
-                    "portrait": portrait_robot, # Pour l'IA (étape suivante)
-                    "tags": infos["tags"],      # Pour le filtre de l'étape 4
-                    "indice": infos["indice"],  # Pour l'affichage dans ton jeu
-                    "difficulte": niveau        # Si tu veux filtrer par niveau plus tard
+                    "portrait": portrait_robot,
+                    "tags": infos["tags"],      
+                    "indice": infos["indice"],  
+                    "difficulte": niveau      
                 }
                 
     return bibliotheque_plate
 
-# Au démarrage de ton jeu:
 mots_prets        = aplatir_dictionnaire(mots)
 noms_des_mots     = list(mots_prets.keys())
 tous_les_portraits = [mots_prets[m]["portrait"] for m in noms_des_mots]
 
-# Teste :
-# print(f"Nombre de mots total : {len(mots_prets)}")
-# print(f"Exemple pour NAPOLEON : {mots_prets['NAPOLEON']['portrait']}")
-# print(f"Exemple pour AZERBAIDJAN : {mots_prets['AZERBAIDJAN']['portrait']}")
 
-# Teste OK 
-
-
-########################### TRANSFORAMTION LES RESULTATS OBTENUES PRECEDEMMENTS EN LANGUAGE COMPRÉHENSIBLE POUR LE PROGRAMME SUIVANT #############################
-
-# Chargement du modèle
 model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
 
-# Calcul des vecteurs (L'IA transforme les portraits en coordonnées mathématiques)
-# Cette opération ne doit être faite qu'une seule fois au démarrage.
 vecteurs_ia = model.encode(tous_les_portraits)
 
 
-
-########################### ON FILTRE TOUT LES MOTS QUI NE SONT PAS CONCERNER PAR LES TAGS ET ON SELECTIONNE QUE CEUX QUI CORRESPONDENT AUX THEMES UTILISER ###############################
-
-
 def filtrer_par_tags(themes):
-    # On cherche si au moins UN des thèmes tapés par le joueur se trouve dans la liste des tags de ce mot 
-    return [
-        mot for mot, infos in mots_prets.items()
-        if any(tag in infos["tags"] for tag in themes)
-    ]
-    # On grade les mots qui ont les meme themes
+    return [ mot for mot, infos in mots_prets.items() if any(tag in infos["tags"] for tag in themes) ]
 
 ######################## FONCTION RECHERCHE MATHEMATIQUE DES MOTS ################################
 
 
 def piocher_mot(themes, difficulte=None):
-    candidats = filtrer_par_tags(themes)    # On prend les mots qui correspondent aux themes séléctionner 
+    candidats = filtrer_par_tags(themes)   
 
     if difficulte:
-        candidats_filtres = [m for m in candidats
-                             if mots_prets[m]["difficulte"] == difficulte]  # On ne retient que les mots qui correspondent à la difficulté choisit précédemment
+        candidats_filtres = [m for m in candidats if mots_prets[m]["difficulte"] == difficulte]  
         
         if candidats_filtres:
-            candidats = candidats_filtres   # Si ca vide la liste précedante, on selectionne quand meme un mot pour ne pas renvoyer une liste vide (pour éviter que ca plante)
+            candidats = candidats_filtres  
 
-    indices_candidats  = [noms_des_mots.index(m) for m in candidats] # On recupére les position des mots dans la liste candidats
-    vecteurs_candidats = vecteurs_ia[indices_candidats]    #On extrait les vecteurs IA des candidats selon leurs positions. ( en effet, le tableau vecteurs_ia est un tableau analogue du tableau 'indice_canditat'. Donc en prenant les meme indices on aura acces aux informations corréspondants aux mots sélméctionné)
+    indices_candidats  = [noms_des_mots.index(m) for m in candidats] 
+    vecteurs_candidats = vecteurs_ia[indices_candidats]  
 
-    phrase_fusionnee  = " ".join(themes)  # on joint les themes en une seul chaine de charactere avec un espaces entre chaque pour que la comprehension soit meilleur
-    vecteur_demande   = model.encode([phrase_fusionnee])  # on convertie la "phrase" predrécedante en vecteurs
-    scores            = cosine_similarity(vecteur_demande, vecteurs_candidats)[0]   # On compare l'angle fomrer par ces vecteurs le [0] permet de récupérer la premeire ligne de la matrice 
-    top5    = np.argsort(scores)[-5:][::-1] # Ici on on prend les indice trié par ordre croissant, on prend les 5 derniers, et on iverse l'ordre pour tirer le moins bon afin de sélectionner les candidats les plus pertinants
+    phrase_fusionnee = " ".join(themes)
+    vecteur_demande = model.encode([phrase_fusionnee]) 
+    scores = cosine_similarity(vecteur_demande, vecteurs_candidats)[0]   
+    top5 = np.argsort(scores)[-5:][::-1]
     choix = candidats[top5[0]]
     return choix
 
@@ -2005,4 +1975,4 @@ difficulte = input("Difficulté ? (4_6 / 7_10 / 11_et_plus / laisser vide) : ").
 resultat = piocher_mot(themes, difficulte)
 print(f"\nMot choisi  : {resultat}")
 print(f"Indice      : {mots_prets[resultat]['indice']}")
-print(f"Difficulté  : {mots_prets[resultat]['difficulte']}")#ajoute tout ici
+print(f"Difficulté  : {mots_prets[resultat]['difficulte']}")

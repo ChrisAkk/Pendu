@@ -6,7 +6,10 @@ routes_bp = Blueprint('routes', __name__)
 
 @routes_bp.route('/')
 def welcome():
-    return render_template('index.html')
+    if 'historique' not in session:
+        session['historique'] = []
+
+    return render_template('index.html', historique=session['historique'])
 
 @routes_bp.route('/game', methods=['POST'])
 def to_game():
@@ -75,8 +78,10 @@ def take_chance():
     compteur = session['compteur']
     essais = session['essais']
 
+    historique = session['historique']
+
     if int(ticket) != session['ticket_triche'] :
-        return render_template('index.html')
+        return render_template('triche.html')
     else:
         session['ticket_triche'] += 1
 
@@ -96,11 +101,16 @@ def take_chance():
             
             if compteur >= int(essais):
                 win = False
+                historique.append(f"Défaite en {essais} essais.")
 
             session['compteur'] = compteur
 
         if ''.join(session['mot_cache']) == mot:
-            win = True             
+            win = True
+            historique.append(f"Victoire en {session['compteur']} essais sur {session['essais']} essais.")   
+
+        session['historique'] = historique   
+        session.modified = True      
         
         return render_template('game.html', 
                                 lettre=lettre, 
@@ -117,6 +127,3 @@ def take_chance():
                                 caractere=session['caractere'],
                                 aleatoire=session['aleatoire']
                                )
-    
-
- 

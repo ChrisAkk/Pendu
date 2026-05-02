@@ -1,26 +1,4 @@
-// boutons pour afficher configuraton
-
-const btnConfiguration = document.querySelector('.btn-configuration')
-const menuConfiguration = document.querySelector('.configuration-page')
-
-if (btnConfiguration && menuConfiguration) {
-    btnConfiguration.addEventListener('click', (e) => {
-        e.stopPropagation();
-        menuConfiguration.classList.toggle('on');
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!menuConfiguration.contains(e.target) && menuConfiguration.classList.contains('on')) {
-            menuConfiguration.classList.remove('on');
-        };
-    });
-
-    document.addEventListener('scroll', () => {
-        if (menuConfiguration.classList.contains('on')) {
-            menuConfiguration.classList.remove('on');
-        };
-    })
-}
+// Apparition menu percher 
 
 const menuPercher = document.querySelector('.menu-start');
 const btnAddPercher = document.querySelector('.welcome-btn');
@@ -39,6 +17,52 @@ if (btnRemovePercher) {
         menuPercher.classList.remove('visible')
     })
 }
+
+// boutons pour afficher configuraton et score
+
+const btnConfiguration = document.querySelector('.btn-configuration');
+const menuConfiguration = document.querySelector('.configuration-page');
+const menuScore = document.querySelector('.score-page');
+const btnScore = document.querySelector('.btn-score');
+
+// configuration
+
+if (btnConfiguration && menuConfiguration) {
+    btnConfiguration.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menuConfiguration.classList.toggle('on');
+
+        if (menuScore.classList.contains('on')) {
+            menuScore.classList.remove('on');
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!menuConfiguration.contains(e.target) && menuConfiguration.classList.contains('on')) {
+            menuConfiguration.classList.remove('on');
+        };
+    });
+}
+
+// score
+
+if (btnScore && menuScore) {
+    btnScore.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menuScore.classList.toggle('on');
+
+        if (menuConfiguration.classList.contains('on')) {
+            menuConfiguration.classList.remove('on');
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!menuScore.contains(e.target) && menuScore.classList.contains('on')) {
+            menuScore.classList.remove('on');
+        };
+    });
+}
+
 
 // Les boutons de theme
 
@@ -142,12 +166,11 @@ window.addEventListener('keydown', (event) => {
     }
 
     letter = event.key.toUpperCase();
-    console.log(letter);
 
     btnLetters.forEach(button => {
-        if (button.value === letter) {
-            button.focus()
-            button.click()
+        if (button.value === letter && !button.classList.contains('disabled')) {
+            button.focus();
+            button.click();
         }
     })
 })
@@ -165,7 +188,7 @@ if (btnIndice) {
 
 // bouton rejouer 
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
     urlParametre = new URLSearchParams(window.location.search);
 
     if (urlParametre.get('config') === 'true') {
