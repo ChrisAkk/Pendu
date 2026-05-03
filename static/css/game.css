@@ -13,7 +13,7 @@
 }
 
 body{
-    background: url(../img/background-2.png);
+    background: url(../img/background-3.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -29,6 +29,29 @@ body{
     height: 100vh;
 }
 
+.btn-mute{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 20px;
+    padding: 16px 20px;
+    background: none;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+    color: #fff;
+    z-index: 999;
+    text-decoration: none;
+    font-size: 20px;
+    transition: .3s;
+}
+
+.btn-mute:hover{
+    color: #000;
+    border: 1px solid #000;
+}
+
 /* indice */
 
 .indice-btn{
@@ -37,13 +60,13 @@ body{
     right: 0;
     margin: 10px;
     background: transparent;
-    border: 1px solid #000;
+    border: 1px solid #fff;
     width: 50px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #000;
+    color: #fff;
     cursor: pointer;
     z-index: 9999;
 }
@@ -55,7 +78,7 @@ body{
     justify-content: center;
     top: 0;
     right: 100px;
-    color: #000;
+    color: #fff;
     opacity: 0;
     margin: 10px;
     height: 50px;
@@ -63,7 +86,7 @@ body{
     background: transparent;
     border-radius: 10px;
     padding: 10px;
-    border: 1px solid #000;
+    border: 1px solid #fff;
 }
 
 .indice.on{
@@ -78,12 +101,14 @@ body{
 }
 
 .indice-btn:hover{
-    box-shadow:
-        0 0 5px #000,
-        0 0 10px #000,
-        0 0 20px #000,
-        0 0 40px #000;
+    color: #000;
+    border: 1px solid #000;
 }
+
+.indice-btn:hover + .indice{
+    color: #000;
+    border: 1px solid #000;
+} 
 
 /* le pendu */
 
@@ -96,6 +121,13 @@ body{
     bottom: 0;
     height: 100%;
     left: 0;
+    animation: dessin 2s ease-in-out forwards;
+}
+
+@keyframes dessin {
+    0% {opacity: 0.8;}
+    10% {opacity: 0.9;}
+    100% {opacity: 1;}
 }
 
 .global-word-part{
@@ -160,9 +192,9 @@ body{
 }
 
 
-button{
+.letters-part button{
     padding: 1rem;
-    background: url(../img/lettre.png);
+    background: url(../img/wood.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -181,7 +213,7 @@ button{
     z-index: 99999;
 }
 
-button:hover{
+.letters-part button:hover{
     opacity: 1;
     box-shadow:
         0 0 20px #fff,
@@ -193,6 +225,7 @@ button:hover{
         0 0 40px #fff,
         0 0 60px #fff,
         0 0 100px #fff;
+    z-index: 999999999;
 }
 
 .btn-perdu{
@@ -241,14 +274,22 @@ button:hover{
 }
 
 .result-container h1{
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .result-container h2{
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .result-container p{
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.result-container .p-resultat{
+    width: 100%;
+    text-align: left;
     font-size: 1rem;
 }
 
@@ -262,6 +303,7 @@ button:hover{
         0 0 100px #efa2a3;
     cursor: pointer;
     transition: .3s;
+    margin-bottom: 10px;
 }
 
 .result-container a:hover{
@@ -275,6 +317,7 @@ button:hover{
 .result-container .fin-partie{
     margin-bottom: 50px;
     padding-bottom: 5px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #efa2a3;
 }
 

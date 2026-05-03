@@ -50,7 +50,6 @@ body{
 
 .back-btn-1 {
     position: absolute;
-    top: 100;
     left: 0;
     margin: 20px;
     padding: 20px 24px;
@@ -66,7 +65,6 @@ body{
 
 .back-btn-2 {
     position: absolute;
-    top: 200;
     left: 0;
     margin: 20px;
     padding: 20px 24px;
@@ -82,7 +80,6 @@ body{
 
 .back-btn-3 {
     position: absolute;
-    top: 100;
     left: 0;
     margin: 20px;
     padding: 20px 24px;
@@ -96,14 +93,31 @@ body{
     text-decoration: none;
 }
 
+.btn-mute{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 20px;
+    padding: 16px 20px;
+    background: none;
+    border: 1px solid #000;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+    color: #000;
+    z-index: 999;
+    text-decoration: none;
+    font-size: 20px;
+}
+
 .back-btn-1:hover,
-.back-btn-2:hover,
 .back-btn-3:hover {
     color: #000;
     border: 1px solid #000;
 }
 
-.back-btn-2:hover{
+.back-btn-2:hover,
+.btn-mute:hover{
     color: #efa2a3;
     border: 1px solid #efa2a3;
 }

@@ -15,8 +15,8 @@
             <p class="fin-partie">Tu as <span class="span-gagner">gagner</span> !</p>
 
             <h2>Resultat de la partie</h2>
-            <p>Mot trouvé : <strong>{{mot}}</strong></p>
-            <p class="fin-partie">Nombre d'erreur : <strong>{{compteur}}</strong></p>
+            <p class="p-resultat">Mot trouvé : <strong>{{mot}}</strong></p>
+            <p class="fin-partie p-resultat">Nombre d'erreur : <strong>{{compteur}}</strong></p>
 
             <a href="{{url_for('routes.welcome', _anchor='menu-page', config='true')}}" class="btn-rejouer">rejouer</a>
             <a href="{{url_for('routes.welcome')}}" class="btn-quitter">quitter</a>
@@ -27,8 +27,8 @@
             <p class="fin-partie">tu as <span class="span-perdu">perdu...</span></p>
 
             <h2>Resultat de la partie</h2>
-            <p>Mot non trouvé : <strong>{{mot}}</strong></p>
-            <p class="fin-partie">Nombre d'erreur : <strong>{{compteur}}</strong></p>
+            <p class="p-resultat">Mot non trouvé : <strong>{{mot}}</strong></p>
+            <p class="fin-partie p-resultat">Nombre d'erreur : <strong>{{compteur}}</strong></p>
 
             <a href="{{url_for('routes.welcome', _anchor='menu-page', config='true')}}" class="btn-rejouer">rejouer</a>
             <a href="{{url_for('routes.welcome')}}" class="btn-quitter">quitter</a>
@@ -36,6 +36,7 @@
     {% endif %}
   
     <div class="global-container">
+        <button class="btn-mute"></button>
         <div class="global-indice">
             {% if indice != None %}
                 <button class="indice-btn"><i class="ri-question-mark"></i></button>
@@ -139,6 +140,75 @@
     </div>
     <script>
         let winJs = "{{ 'true' if win != None else 'false'}}"
+        let winFlask = "{{ 'true' if win == True else 'false' if win == False else 'none'}}"
+        let lettreDansMot = "{{lettre_dans_mot}}"
+        const btnMute = document.querySelector('.btn-mute')
+
+        const correctSong = new Audio("{{url_for('static', filename='sons/correct.mp3')}}")
+        correctSong.volume = 0.3;
+        const wrongSong = new Audio("{{url_for('static', filename='sons/wrong.mp3')}}")
+        wrongSong.volume = 0.5;
+        const winSong = new Audio("{{url_for('static', filename='sons/win.mp3')}}")
+        winSong.volume = 0.3;
+        const looseSong = new Audio("{{url_for('static', filename='sons/loose.mp3')}}")
+        const gameSong = new Audio("{{url_for('static', filename='sons/game.mp3')}}")
+        gameSong.volume = 0.3;
+
+        // Song d'ambiance 
+
+        gameSong.loop = true;
+        let saveVolume = localStorage.getItem('audioMuted');
+        gameSong.volume = parseFloat(saveVolume ?? 0.3);
+
+        let currentTime = localStorage.getItem('audioTime');
+        if (currentTime) {
+            gameSong.currentTime = parseFloat(currentTime);
+        }
+
+        gameSong.play();
+
+        window.onbeforeunload = function () {
+            localStorage.setItem('audioTime', gameSong.currentTime);
+        }
+
+        if (gameSong.volume > 0) {
+            btnMute.innerHTML = '<i class="ri-volume-up-line"></i>';
+        } else {
+            btnMute.innerHTML = '<i class="ri-volume-mute-line"></i>';
+        }
+
+        // Song de touches
+
+        if (winJs === 'true') {
+            gameSong.pause();
+            if (winFlask === 'true') {
+                winSong.play()
+            } else {
+                looseSong.play()
+            }
+        } else {
+            if (lettreDansMot == '1') {
+                correctSong.play()
+            } else if (lettreDansMot == '0') {
+                wrongSong.play()
+            }
+        }
+
+        // bouton mute
+
+        btnMute.addEventListener('click', () => {
+            if (gameSong.volume === 0.3) {
+                gameSong.volume = 0;
+                btnMute.innerHTML = '<i class="ri-volume-mute-line"></i>';
+            } else {
+                gameSong.volume = 0.3;
+                btnMute.innerHTML = '<i class="ri-volume-up-line"></i>';
+            }
+            localStorage.setItem('audioMuted', gameSong.volume)
+        })
+
+        // Fondu 
+
     </script>
     <script src="../static/js/index.js"></script>
 </body>

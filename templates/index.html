@@ -14,6 +14,7 @@
     <main>
         <div class="global-container">
             <div class="welcome-page" id="welcome-page">
+                <button class="btn-mute"></button>
                 <div class="welcome-container">
                     <h1>Bienvenue sur le jeu du pendu</h1>
                     <h3>Le destin au bout des lettres</h3>
@@ -175,6 +176,63 @@
             </div>
         </div>
         <script src="../static/js/index.js"></script>
+        <script>
+            const ambianceSong = new Audio("{{url_for('static', filename='sons/ambiance.mp3')}}")
+            const btnMute = document.querySelector('.btn-mute')
+            ambianceSong.loop = true;
+            let saveVolume = localStorage.getItem('audioMuted');
+            ambianceSong.volume = parseFloat(saveVolume ?? 0.3);
+
+
+            let currentTime = localStorage.getItem('audioTime');
+            if (currentTime) {
+                ambianceSong.currentTime = parseFloat(currentTime);
+            }
+
+            ambianceSong.play();
+
+            window.onbeforeunload = function() {
+                localStorage.setItem('audioTime', ambianceSong.currentTime);
+            }
+
+            if (ambianceSong.volume > 0) {
+                btnMute.innerHTML = '<i class="ri-volume-up-line"></i>';
+            } else {
+                btnMute.innerHTML = '<i class="ri-volume-mute-line"></i>';
+            }
+
+            // bouton mute
+
+            btnMute.addEventListener('click', () => {
+                if (ambianceSong.volume === 0.3) {
+                    ambianceSong.volume = 0;
+                    btnMute.innerHTML = '<i class="ri-volume-mute-line"></i>';
+                } else {
+                    ambianceSong.volume = 0.3;
+                    btnMute.innerHTML = '<i class="ri-volume-up-line"></i>';
+                }
+                localStorage.setItem('audioMuted', ambianceSong.volume)
+            })
+
+            // fondu
+
+            const form = document.querySelector('form');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                let audio = setInterval(() => {
+                    if (ambianceSong.volume > 0.05) {
+                        ambianceSong.volume -= 0.05;
+                    } else {
+                        ambianceSong.volume = 0
+                        clearInterval(audio);
+                        form.submit();
+                    }
+                }, 50)
+            })
+
+        </script>
 </body>
 
 </html>

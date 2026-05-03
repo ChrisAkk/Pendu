@@ -110,7 +110,12 @@ def take_chance():
             historique.append(f"Victoire en {session['compteur']} fautes sur {session['essais']} sur le mot : {mot}.")   
 
         session['historique'] = historique   
-        session.modified = True      
+        session.modified = True
+
+        if lettre_dans_mot == True:
+            lettre_dans_mot = '1'
+        else:
+            lettre_dans_mot = '0'    
         
         return render_template('game.html', 
                                 lettre=lettre, 
@@ -126,5 +131,6 @@ def take_chance():
                                 theme=session['theme'],
                                 caractere=session['caractere'],
                                 aleatoire=session['aleatoire'],
-                                compteur=compteur
+                                compteur=compteur,
+                                lettre_dans_mot=lettre_dans_mot
                                )
