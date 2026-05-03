@@ -1,4 +1,5 @@
 dictionnaire_des_mots = {
+
     "ANIMAUX": {
 
         "4_6": {
@@ -42,27 +43,28 @@ dictionnaire_des_mots = {
         },
 
         "11_et_plus": {
-            "HIPPOPOTAME":           "Poids lourd territorial des rivieres",
-            "KANGOUROU ROUGE":       "Marsupial geant du desert australien",
-            "GRENOUILLE ARBORICOLE": "Amphibien minuscule aux ventouses adhesives",
-            "CROCODILE DU NIL":      "Embuscade depuis les berges du grand fleuve",
-            "ARAIGNEE SAUTEUSE":     "Predatrice aux yeux multiples et immenses",
-            "AUTRUCHE D'AFRIQUE":    "La plus grande et la plus rapide a pied",
-            "CAMELEON JACKSON":      "Trois cornes et camouflage spectaculaire",
-            "SANGLIER D'EUROPE":     "Boutoir tranchant et groupe familial solide",
-            "HERISSON COMMUN":       "Boule de piquants au moindre danger",
-            "SCARABEE SACRE":        "Insecte divinise qui roule une boule",
-            "TARENTULE NOIRE":       "Grande velue aux crochets venimeux",
-            "RHINOCEROS BLANC":      "Cuirasse de peau et corne menacee",
-            "GIRAFE RETICULEE":      "Patron geometrique unique sur chaque individu",
-            "FOURMI LEGIONNAIRE":    "Colonne devastatrice de millions d'individus",
-            "JAGUAR MELANISTE":      "Grand felin noir presque invisible",
-            "VARAN DE KOMODO":       "Plus grand lezard du monde aux dents bacteriennes",
-            "MANTE RELIGIEUSE":      "Insecte predateur qui semble en priere",
+            "HIPPOPOTAME":        "Poids lourd territorial des rivieres",
+            "KANGOUROU ROUGE":    "Marsupial geant du desert australien",
+            "CAIMAN DU NIL":      "Reptile embusque sous la surface des fleuves",  
+            "CROCODILE DU NIL":   "Embuscade depuis les berges du grand fleuve",
+            "ARAIGNEE SAUTEUSE":  "Predatrice aux yeux multiples et immenses",
+            "AUTRUCHE D'AFRIQUE": "La plus grande et la plus rapide a pied",
+            "CAMELEON JACKSON":   "Trois cornes et camouflage spectaculaire",
+            "SANGLIER D'EUROPE":  "Boutoir tranchant et groupe familial solide",
+            "HERISSON COMMUN":    "Boule de piquants au moindre danger",
+            "SCARABEE SACRE":     "Insecte divinise qui roule une boule",
+            "TARENTULE NOIRE":    "Grande velue aux crochets venimeux",
+            "RHINOCEROS BLANC":   "Cuirasse de peau et corne menacee",
+            "GIRAFE RETICULEE":   "Patron geometrique unique sur chaque individu",
+            "FOURMI LEGIONNAIRE": "Colonne devastatrice de millions d'individus",
+            "JAGUAR MELANISTE":   "Grand felin noir presque invisible",
+            "VARAN DE KOMODO":    "Plus grand lezard du monde aux dents bacteriennes",
+            "MANTE RELIGIEUSE":   "Insecte predateur qui semble en priere",
         },
     },
 
     "FILMS": {
+
         "4_6": {
             "AVATAR": "Humanite contre nature sur une lune distante",
             "MATRIX": "Pilule rouge ou pilule bleue",
@@ -82,6 +84,7 @@ dictionnaire_des_mots = {
             "BONES":  "Anthropologue et agent FBI resolvent des crimes",
             "MONK":   "Detektive prodige aux nombreuses phobies",
         },
+
         "7_10": {
             "TITANIC":     "Un paquebot, un iceberg, une histoire d'amour",
             "INCEPTION":   "Voler des secrets au coeur du sommeil",
@@ -230,25 +233,24 @@ dictionnaire_des_mots = {
         },
 
         "11_et_plus": {
-            "BOUILLABAISSE":           "Soupe de port aux poissons de roche",
-            "RATATOUILLE":             "Mijoter des legumes d'ete au soleil",
-            "PROFITEROLE":             "Choux farcis glaces et noyes de chocolat chaud",
-            "CREME BRULEE":            "Surface cassante sous le chalumeau",
-            "QUICHE LORRAINE":         "Pate brisee, lardons et appareil aux oeufs",
-            "BOEUF BOURGUIGNON":       "Mijote au vin rouge avec champignons",
-            "SOUPE A L'OIGNON":        "Gratinee au four dans un bol en terre",
-            "MOUSSE AU CHOCOLAT":      "Blancs en neige et cacao fondu",
-            "PAIN AU CHOCOLAT":        "Viennoiserie aux deux barres noires",
-            "CHARLOTTE AUX FRAISES":   "Biscuits a la cuillere et mousse de fruits",
-            "TARTE AU CITRON":         "Creme acide et meringue doree",
-            "BLANQUETTE DE VEAU":      "Veau mijote en sauce blanche et citron",
-            "SALADE NICOISE":          "Anchois, thon, oeufs durs et olives",
-            "MAGRET DE CANARD":        "Poitrine de canard gras grilee",
-            "GRATIN DAUPHINOIS":       "Pommes de terre fondantes en creme",
-            "COQUILLES SAINT-JACQUES": "Noix de mer gratinee au beurre persille",
+            "BOUILLABAISSE":     "Soupe de port aux poissons de roche",
+            "RATATOUILLE":       "Mijoter des legumes d'ete au soleil",
+            "PROFITEROLE":       "Choux farcis glaces et noyes de chocolat chaud",
+            "CREME BRULEE":      "Surface cassante sous le chalumeau",
+            "QUICHE LORRAINE":   "Pate brisee, lardons et appareil aux oeufs",
+            "BOEUF BOURGUIGNON": "Mijote au vin rouge avec champignons",
+            "SOUPE A L'OIGNON":  "Gratinee au four dans un bol en terre",
+            "MOUSSE AU CHOCOLAT":"Blancs en neige et cacao fondu",
+            "PAIN AU CHOCOLAT":  "Viennoiserie aux deux barres noires",
+            "GATEAU BRETON":     "Biscuit epais au beurre sale de Bretagne",       
+            "TARTE AU CITRON":   "Creme acide et meringue doree",
+            "BLANQUETTE DE VEAU":"Veau mijote en sauce blanche et citron",
+            "SALADE NICOISE":    "Anchois, thon, oeufs durs et olives",
+            "MAGRET DE CANARD":  "Poitrine de canard gras grilee",
+            "GRATIN DAUPHINOIS": "Pommes de terre fondantes en creme",
+            "PLATEAU FROMAGE":   "Assortiment de pates molles et dures sur planche",  
         },
     },
-
 
     "MUSIQUE": {
 
@@ -313,7 +315,6 @@ dictionnaire_des_mots = {
         },
     },
 
-
     "SPORT": {
 
         "4_6": {
@@ -335,6 +336,7 @@ dictionnaire_des_mots = {
             "CHRONO": "Course contre la montre individuelle",
             "SPRINT": "Effort maximal sur courte distance",
         },
+
         "7_10": {
             "FOOTBALL":   "Onze contre onze, un ballon rond",
             "BASKETBALL": "Panier a trois metres de hauteur",
@@ -343,7 +345,7 @@ dictionnaire_des_mots = {
             "ESCRIME":    "Touche electrique et masque grillage",
             "SKI ALPIN":  "Descente sur neige a grande vitesse",
             "HANDBALL":   "But a la main, gardien et pivot",
-            "FORMULE UN":  "Aerodynamisme et strategie pneumatique",
+            "FORMULE UN": "Aerodynamisme et strategie pneumatique",
             "MARATHON":   "Quarante-deux kilometres et des poussieres",
             "TRIATHLON":  "Trois disciplines sans interruption",
             "ESCALADE":   "Murs artificiels ou falaises naturelles",
@@ -359,6 +361,7 @@ dictionnaire_des_mots = {
             "PALMARES":   "Liste des titres accumules au fil des annees",
             "ARBITRE":    "Celui qui fait respecter les regles sur le terrain",
         },
+
         "11_et_plus": {
             "HALTEROPHILIE":       "Arracher ou epauler-jeter le plus lourd",
             "GYMNASTIQUE":         "Barre fixe, sol et note d'execution",
@@ -422,24 +425,24 @@ dictionnaire_des_mots = {
         },
 
         "11_et_plus": {
-            "GRAVITATION":               "Force proportionnelle aux masses",
-            "PENICILLINE":               "Moisissure qui a change la medecine",
-            "RADIOACTIVITE":             "Desintegration spontanee d'un noyau instable",
-            "PHOTOSYNTHESE":             "Lumiere et CO2 transformes en sucre et oxygene",
-            "STEPHEN HAWKING":           "Rayonnement des trous noirs depuis un fauteuil",
-            "ANTIBIOTIQUE":              "Molecule bactericide issue de champignons",
-            "SUPRACONDUCTEUR":           "Resistance electrique nulle sous un certain seuil",
-            "THEORIE DES CORDES":        "Onze dimensions et vibrations fondamentales",
-            "SELECTION NATURELLE":       "Survie des mieux adaptes au milieu",
-            "ENERGIE SOMBRE":            "Force inconnue qui accelere l'expansion de l'univers",
-            "MATIERE NOIRE":             "Masse invisible qui tient les galaxies ensemble",
-            "INTELLIGENCE ARTIFICIELLE": "Simulation de raisonnement par une machine",
-            "CHROMOSOME X":              "Chromosome determinant le sexe chez les mammiferes",
+            "GRAVITATION":        "Force proportionnelle aux masses",
+            "PENICILLINE":        "Moisissure qui a change la medecine",
+            "RADIOACTIVITE":      "Desintegration spontanee d'un noyau instable",
+            "PHOTOSYNTHESE":      "Lumiere et CO2 transformes en sucre et oxygene",
+            "STEPHEN HAWKING":    "Rayonnement des trous noirs depuis un fauteuil",
+            "ANTIBIOTIQUE":       "Molecule bactericide issue de champignons",
+            "SUPRACONDUCTEUR":    "Resistance electrique nulle sous un certain seuil",
+            "THEORIE DES CORDES": "Onze dimensions et vibrations fondamentales",
+            "CHAINE ALIMENTAIRE": "Du producteur au predateur, qui mange qui",       
+            "ENERGIE SOMBRE":     "Force inconnue qui accelere l'expansion de l'univers",
+            "MATIERE NOIRE":      "Masse invisible qui tient les galaxies ensemble",
+            "CERVEAU NUMERIQUE":  "Machine qui simule le raisonnement humain",        
+            "CHROMOSOME X":       "Chromosome determinant le sexe chez les mammiferes",
         },
     },
 
     "HISTOIRE": {
- 
+
         "4_6": {
             "SHOAH":  "Six millions de morts dans le systeme nazi",
             "GAULE":  "Territoire d'avant la France romaine",
@@ -486,18 +489,18 @@ dictionnaire_des_mots = {
             "COLONISATION":            "Conquete et administration de terres etrangeres",
             "CONSTITUTION":            "Loi supreme qui fonde un etat",
             "DEPORTATION":             "Transfert force vers les camps de la mort",
-            "REVOLUTION FRANCAISE":    "Trois couleurs et une tete de roi tombee",
-            "REVOLUTION INDUSTRIELLE": "Charbon, acier et exode rural",
+            "BASTILLE EN FLAMMES":     "Symbole de la chute d'un regime en 1789",           
+            "MACHINE A VAPEUR":        "Invention qui lanca l'ere industrielle",              
+            "INDEPENDANCE USA":         "Colons americains contre la couronne britannique",    
+            "UNION EUROPEENNE":        "Traite de paix transforme en communaute de nations", 
+            "CHUTE DE BYZANCE":        "1453, fin d'un empire milleneaire a l'Est",          
             "EMPIRE ROMAIN":           "Legions, routes et droit sur tout le bassin",
             "GUERRE DE CENT ANS":      "Jeanne d'Arc, Azincourt et deux couronnes",
             "SIECLE DES LUMIERES":     "Raison, encyclopedie et critique du pouvoir",
-            "REVOLUTION AMERICAINE":   "Boston, independance et premiere republique moderne",
             "AFFAIRE DREYFUS":         "Proces injuste et fracture de la societe francaise",
             "GUERRE FROIDE":           "Deux blocs, course aux armements, pas de guerre directe",
             "DECOLONISATION":          "Independances en serie dans les annees 50 et 60",
-            "TRAITE DE MAASTRICHT":    "Naissance officielle de l'Union europeenne",
             "BATAILLE DE VERDUN":      "Enfer de boue et d'obus en 1916",
-            "PRISE DE CONSTANTINOPLE": "Fin d'un empire, debut d'un autre en 1453",
         },
     },
 
@@ -505,22 +508,22 @@ dictionnaire_des_mots = {
 
         "4_6": {
             "LIBAN":  "Republique Chretienne et Islamique du Moyen-Orient",
-            "IRAK":  "Ancienne Mesopotamie entre deux fleuves",
-            "CUBA":  "Ile des Caraibes a la revolution emblematique",
-            "MALI":  "Empire medieval sahelien de l'or et du sel",
-            "PERU":  "Civilisation inca et haut plateau andin",
-            "INDE":  "Civilisation millenaire aux mille dieux",
-            "LAOS":  "Enclave bouddhiste d'Asie du Sud-Est",
-            "TOGO":  "Petit pays d'Afrique de l'Ouest sur le golfe",
-            "OMAN":  "Sultanat arabe face au detroit d'Ormuz",
-            "CHILI": "Bande etroite entre la cordillere et le Pacifique",
-            "NIGER": "Vaste pays sahelien traverse par un grand fleuve",
-            "BENIN": "Berceau du vaudou en Afrique de l'Ouest",
-            "GHANA": "Premier pays africain independant au sud du Sahara",
-            "KENYA": "Savane, marathon et Grande Rift Valley",
-            "LIBYE": "Desert et petrole sur la cote mediterraneenne",
-            "NEPAL": "Royaume himalayen aux sommets les plus hauts",
-            "CHINE": "Plus grande population du monde et Grande Muraille",
+            "IRAK":   "Ancienne Mesopotamie entre deux fleuves",
+            "CUBA":   "Ile des Caraibes a la revolution emblematique",
+            "MALI":   "Empire medieval sahelien de l'or et du sel",
+            "PERU":   "Civilisation inca et haut plateau andin",
+            "INDE":   "Civilisation millenaire aux mille dieux",
+            "LAOS":   "Enclave bouddhiste d'Asie du Sud-Est",
+            "TOGO":   "Petit pays d'Afrique de l'Ouest sur le golfe",
+            "OMAN":   "Sultanat arabe face au detroit d'Ormuz",
+            "CHILI":  "Bande etroite entre la cordillere et le Pacifique",
+            "NIGER":  "Vaste pays sahelien traverse par un grand fleuve",
+            "BENIN":  "Berceau du vaudou en Afrique de l'Ouest",
+            "GHANA":  "Premier pays africain independant au sud du Sahara",
+            "KENYA":  "Savane, marathon et Grande Rift Valley",
+            "LIBYE":  "Desert et petrole sur la cote mediterraneenne",
+            "NEPAL":  "Royaume himalayen aux sommets les plus hauts",
+            "CHINE":  "Plus grande population du monde et Grande Muraille",
         },
 
         "7_10": {
