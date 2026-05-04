@@ -33,8 +33,8 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    margin: 20px;
-    padding: 16px 20px;
+    margin: 10px;
+    padding: 14px 18px;
     background: none;
     border: 1px solid #fff;
     border-radius: 10px;
@@ -43,7 +43,7 @@ body{
     color: #fff;
     z-index: 999;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 16px;
     transition: .3s;
 }
 
@@ -58,7 +58,6 @@ body{
     position: absolute;
     top: 0;
     right: 0;
-    margin: 10px;
     background: transparent;
     border: 1px solid #fff;
     width: 50px;
@@ -69,6 +68,11 @@ body{
     color: #fff;
     cursor: pointer;
     z-index: 9999;
+    border-radius: 10px;
+    transition: .3s;
+    padding: 20px 24px;
+    font-size: 20px;
+    margin: 10px;
 }
 
 .indice{
