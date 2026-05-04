@@ -289,7 +289,7 @@ body{
     justify-content: space-between;
     height: 100%;
     width: 50vw;
-    padding: 20px 3rem 20px 3rem;
+    padding: 40px 3rem 40px 3rem;
 
     background: url(../img/wood.png);
     background-repeat: no-repeat;
@@ -505,12 +505,13 @@ body{
     align-items: center;
     color: #fff;
     background: #efa2a3;
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 10px;
     font-size: 20px;
     transition: .3s;
     cursor: pointer;
     border: none;
+    width: 100%;
 }
 
 .jouer-btn:disabled{
