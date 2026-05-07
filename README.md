@@ -4,8 +4,6 @@ Groupe (MITD02) : Chris Abou Karam, Yassine Krifa et Anis Chader
 
 Projet réalisé dans le cadre de la première année de Licence (L1). L'objectif est de concevoir un jeu du pendu complet avec une interface graphique web, une gestion de session, des effets sonores et un système anti-triche.
 
--> Le README a été entièrement rédigé par l'intelligence artificielle Claude pour gagner du temps (bien sûr, il a été corrigé ensuite).
-
 ---
 
 ## 🎮 Fonctionnalités
