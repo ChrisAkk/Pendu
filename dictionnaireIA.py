@@ -1902,79 +1902,79 @@ mots = {
 
 }
 
-import random
-from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
-import numpy as np
+#import random
+#from sentence_transformers import SentenceTransformer
+#from sklearn.metrics.pairwise import cosine_similarity
+#import numpy as np
 
 
 ############### INITALISATION DES DONNÉES POUR L'IA ###############################
 
-def aplatir_dictionnaire(ton_dico_actuel):
-    """
-    OBJECTIF : Passer d'un dictionnaire à 3 niveaux (Thème > Difficulté > Mot)
-    à une bibliothèque 'plate' où chaque mot est une entrée directe.
-    """
-    bibliotheque_plate = {}
-    for theme, difficultes in ton_dico_actuel.items():
-        for niveau, liste_mots in difficultes.items():
-            for mot, infos in liste_mots.items():
+#def aplatir_dictionnaire(ton_dico_actuel):
+    #"""
+    #OBJECTIF : Passer d'un dictionnaire à 3 niveaux (Thème > Difficulté > Mot)
+    #à une bibliothèque 'plate' où chaque mot est une entrée directe.
+    #"""
+    #bibliotheque_plate = {}
+    #for theme, difficultes in ton_dico_actuel.items():
+        #for niveau, liste_mots in difficultes.items():
+            #for mot, infos in liste_mots.items():
      
-                portrait_robot = infos["indice"] + " " + ((" ".join(infos["tags"]) + " ") * 3)
+                #portrait_robot = infos["indice"] + " " + ((" ".join(infos["tags"]) + " ") * 3)
                 
-                bibliotheque_plate[mot] = {
-                    "portrait": portrait_robot,
-                    "tags": infos["tags"],      
-                    "indice": infos["indice"],  
-                    "difficulte": niveau      
-                }
+                #bibliotheque_plate[mot] = {
+                    #"portrait": portrait_robot,
+                    #"tags": infos["tags"],      
+                    #"indice": infos["indice"],  
+                    #"difficulte": niveau      
+                #}
                 
-    return bibliotheque_plate
+    #return bibliotheque_plate
 
-mots_prets        = aplatir_dictionnaire(mots)
-noms_des_mots     = list(mots_prets.keys())
-tous_les_portraits = [mots_prets[m]["portrait"] for m in noms_des_mots]
-
-
-model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
-
-vecteurs_ia = model.encode(tous_les_portraits)
+#mots_prets        = aplatir_dictionnaire(mots)
+#noms_des_mots     = list(mots_prets.keys())
+#tous_les_portraits = [mots_prets[m]["portrait"] for m in noms_des_mots]
 
 
-def filtrer_par_tags(themes):
-    return [ mot for mot, infos in mots_prets.items() if any(tag in infos["tags"] for tag in themes) ]
+#model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+
+#vecteurs_ia = model.encode(tous_les_portraits)
+
+
+#def filtrer_par_tags(themes):
+    #return [ mot for mot, infos in mots_prets.items() if any(tag in infos["tags"] for tag in themes) ]
 
 ######################## FONCTION RECHERCHE MATHEMATIQUE DES MOTS ################################
 
 
-def piocher_mot(themes, difficulte=None):
-    candidats = filtrer_par_tags(themes)   
+#def piocher_mot(themes, difficulte=None):
+    #candidats = filtrer_par_tags(themes)   
 
-    if difficulte:
-        candidats_filtres = [m for m in candidats if mots_prets[m]["difficulte"] == difficulte]  
+    #if difficulte:
+        #candidats_filtres = [m for m in candidats if mots_prets[m]["difficulte"] == difficulte]  
         
-        if candidats_filtres:
-            candidats = candidats_filtres  
+        #if candidats_filtres:
+            #candidats = candidats_filtres  
 
-    indices_candidats  = [noms_des_mots.index(m) for m in candidats] 
-    vecteurs_candidats = vecteurs_ia[indices_candidats]  
+    #indices_candidats  = [noms_des_mots.index(m) for m in candidats] 
+    #vecteurs_candidats = vecteurs_ia[indices_candidats]  
 
-    phrase_fusionnee = " ".join(themes)
-    vecteur_demande = model.encode([phrase_fusionnee]) 
-    scores = cosine_similarity(vecteur_demande, vecteurs_candidats)[0]   
-    top5 = np.argsort(scores)[-5:][::-1]
-    choix = candidats[top5[0]]
-    return choix
+    #phrase_fusionnee = " ".join(themes)
+    #vecteur_demande = model.encode([phrase_fusionnee]) 
+    #scores = cosine_similarity(vecteur_demande, vecteurs_candidats)[0]   
+    #top5 = np.argsort(scores)[-5:][::-1]
+    #choix = candidats[top5[0]]
+    #return choix
 
 ######################## TEST FINAL ################################
 
 
-saisie     = input("Thèmes séparés par un espace (ex: EGYPTE ANIMAL) : ")
-themes     = saisie.upper().split()
-difficulte = input("Difficulté ? (4_6 / 7_10 / 11_et_plus / laisser vide) : ").strip() or None
+#saisie     = input("Thèmes séparés par un espace (ex: EGYPTE ANIMAL) : ")
+#themes     = saisie.upper().split()
+#difficulte = input("Difficulté ? (4_6 / 7_10 / 11_et_plus / laisser vide) : ").strip() or None
 
 
-resultat = piocher_mot(themes, difficulte)
-print(f"\nMot choisi  : {resultat}")
-print(f"Indice      : {mots_prets[resultat]['indice']}")
-print(f"Difficulté  : {mots_prets[resultat]['difficulte']}")
+#resultat = piocher_mot(themes, difficulte)
+#print(f"\nMot choisi  : {resultat}")
+#print(f"Indice      : {mots_prets[resultat]['indice']}")
+#print(f"Difficulté  : {mots_prets[resultat]['difficulte']}")
