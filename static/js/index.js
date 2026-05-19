@@ -1,3 +1,5 @@
+alert("Ce jeu est encore en développement et peut contenir des bugs. Pour l'instant, il n'est jouable que sur ordinateur. Merci de votre compréhension.");
+
 // Apparition menu percher 
 
 const menuPercher = document.querySelector('.menu-start');
